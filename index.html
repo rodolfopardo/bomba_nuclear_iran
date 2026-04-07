@@ -667,13 +667,9 @@
             <h2 class="splash-title">ALERTA MUNDIAL</h2>
             <p class="splash-sub">Ultimatum de Trump a Iran - Countdown en vivo</p>
             <button class="splash-btn">ENTRAR SI TE ANIMAS</button>
-            <p class="splash-hint">* Se recomienda volumen alto para la experiencia completa</p>
+            <p class="splash-hint">* Subi el volumen para la experiencia completa 🔊</p>
         </div>
     </div>
-
-    <audio id="evil-laugh" preload="auto">
-        <source src="evil-laugh.mp3" type="audio/mpeg">
-    </audio>
 
     <div class="bg-image"></div>
     <div class="warning-bar"></div>
@@ -815,12 +811,56 @@
     </script>
 
     <script>
+        // Boom sound generator using Web Audio API
+        function playBoom() {
+            var ctx = new (window.AudioContext || window.webkitAudioContext)();
+            // Low frequency explosion
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(80, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(20, ctx.currentTime + 1.5);
+            gain.gain.setValueAtTime(1, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 2);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime);
+            osc.stop(ctx.currentTime + 2);
+
+            // Noise burst for impact
+            var bufferSize = ctx.sampleRate * 2;
+            var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            var data = buffer.getChannelData(0);
+            for (var i = 0; i < bufferSize; i++) {
+                data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.3));
+            }
+            var noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+            var noiseGain = ctx.createGain();
+            noiseGain.gain.setValueAtTime(0.8, ctx.currentTime);
+            noiseGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.5);
+            noise.connect(noiseGain);
+            noiseGain.connect(ctx.destination);
+            noise.start(ctx.currentTime);
+
+            // Sub bass hit
+            var sub = ctx.createOscillator();
+            var subGain = ctx.createGain();
+            sub.type = 'sine';
+            sub.frequency.setValueAtTime(60, ctx.currentTime);
+            sub.frequency.exponentialRampToValueAtTime(10, ctx.currentTime + 2);
+            subGain.gain.setValueAtTime(1, ctx.currentTime);
+            subGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 2.5);
+            sub.connect(subGain);
+            subGain.connect(ctx.destination);
+            sub.start(ctx.currentTime);
+            sub.stop(ctx.currentTime + 2.5);
+        }
+
         // Splash screen
         function enterSite() {
             document.getElementById('splash').classList.add('hidden');
-            var audio = document.getElementById('evil-laugh');
-            audio.volume = 0.7;
-            audio.play().catch(function() {});
+            playBoom();
         }
 
         // Target: April 7, 2026 8:00 PM ET (Trump's deadline)
