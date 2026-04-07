@@ -1144,7 +1144,7 @@
                     <span>IRAN</span>
                 </button>
             </div>
-            <div class="poll-results" id="poll-results">
+            <div class="poll-results show" id="poll-results">
                 <div class="poll-bar-container">
                     <div class="poll-bar-label">
                         <span class="country">&#127482;&#127480; EEUU</span>
@@ -1474,6 +1474,32 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
+        // Live poll results - visible from start, always moving, Iran always winning
+        var liveIranPercent = Math.floor(Math.random() * 5) + 64; // 64-68%
+        var liveUsaPercent = 100 - liveIranPercent;
+        var liveTotalVotes = Math.floor(Math.random() * 3000) + 5000;
+
+        // Set initial values
+        document.getElementById('usa-percent').textContent = liveUsaPercent + '%';
+        document.getElementById('iran-percent').textContent = liveIranPercent + '%';
+        document.getElementById('usa-bar').style.width = liveUsaPercent + '%';
+        document.getElementById('iran-bar').style.width = liveIranPercent + '%';
+        document.getElementById('poll-total').textContent = liveTotalVotes.toLocaleString('es') + ' votos';
+
+        // Keep moving every 3 seconds
+        setInterval(function() {
+            liveTotalVotes += Math.floor(Math.random() * 8) + 2;
+            // Iran fluctuates but always stays ahead (58-72%)
+            var shift = (Math.random() > 0.5 ? 1 : -1) * (Math.random() > 0.7 ? 1 : 0);
+            liveIranPercent = Math.max(58, Math.min(72, liveIranPercent + shift));
+            liveUsaPercent = 100 - liveIranPercent;
+            document.getElementById('usa-percent').textContent = liveUsaPercent + '%';
+            document.getElementById('iran-percent').textContent = liveIranPercent + '%';
+            document.getElementById('usa-bar').style.width = liveUsaPercent + '%';
+            document.getElementById('iran-bar').style.width = liveIranPercent + '%';
+            document.getElementById('poll-total').textContent = liveTotalVotes.toLocaleString('es') + ' votos';
+        }, 3000);
+
         // Social proof ticker
         var tickerMessages = [
             { es: 'Alguien de Brasil voto por Iran', en: 'Someone from Brazil voted Iran', pt: 'Alguem do Brasil votou no Ira' },
@@ -1668,18 +1694,6 @@
             document.getElementById('poll-share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(voteShareText) + '&url=' + encodeURIComponent(url);
             document.getElementById('poll-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(voteShareText);
 
-            // Keep incrementing votes
-            setInterval(function() {
-                totalVotes += Math.floor(Math.random() * 5) + 1;
-                // Slightly shift percentages
-                iranPercent = Math.min(72, iranPercent + (Math.random() > 0.7 ? 1 : 0));
-                usaPercent = 100 - iranPercent;
-                document.getElementById('usa-percent').textContent = usaPercent + '%';
-                document.getElementById('iran-percent').textContent = iranPercent + '%';
-                document.getElementById('usa-bar').style.width = usaPercent + '%';
-                document.getElementById('iran-bar').style.width = iranPercent + '%';
-                document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (translations.votes[currentLang] || translations.votes.es);
-            }, 2000);
         }
 
         // Language toggle - detect browser language
