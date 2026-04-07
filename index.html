@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trump Iran Ceasefire Countdown - 2 Week Timer | Who Won? Vote Now</title>
-    <meta name="description" content="Trump announced a 2-week ceasefire with Iran. The countdown to the end of the ceasefire is live. Who won? Vote USA+Israel vs Iran. Will the peace last? Real-time countdown.">
-    <meta name="keywords" content="trump iran ceasefire, alto el fuego iran, ceasefire countdown, trump iran peace, who won ceasefire, iran strait of hormuz open, trump ceasefire 2 weeks, iran usa ceasefire, iran israel ceasefire, countdown ceasefire iran, cese al fuego iran">
+    <title>Alto el Fuego Trump Iran - Quien Gano? Vota | Ceasefire Countdown Live</title>
+    <meta name="description" content="Cese al fuego de 2 semanas entre EEUU e Iran. Quien gano? Vota EEUU+Israel o Iran. Countdown en vivo. Trump announced a 2-week ceasefire. Who won? Vote now. Cessar-fogo ao vivo.">
+    <meta name="keywords" content="trump iran ceasefire, alto el fuego iran, cese al fuego iran, ceasefire countdown, quien gano cese al fuego, trump iran peace, who won ceasefire, iran strait of hormuz open, trump ceasefire 2 weeks, cessar-fogo iran, iran usa ceasefire vote">
     <meta name="author" content="Humanity (while it lasts)">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://bomba-nuclear-iran-trump-countdown.vercel.app/">
@@ -1374,8 +1374,8 @@
     [{
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Countdown to Deadline: Trump Iran Ultimatum Live Timer",
-        "description": "Live countdown to Trump's 8PM ET deadline for Iran. Trump warns of consequences if Iran keeps Strait of Hormuz closed.",
+        "name": "Alto el Fuego Trump Iran - Ceasefire Countdown Live",
+        "description": "Cese al fuego de 2 semanas. Quien gano? Vota EEUU+Israel o Iran. 2-week ceasefire countdown. Who won? Vote now.",
         "url": "https://bomba-nuclear-iran-trump-countdown.vercel.app/",
         "inLanguage": "en",
         "image": "https://bomba-nuclear-iran-trump-countdown.vercel.app/og.png",
@@ -1438,64 +1438,7 @@
     </script>
 
     <script>
-        // Boom sound generator using Web Audio API
-        function playBoom() {
-            var ctx = new (window.AudioContext || window.webkitAudioContext)();
-            // Low frequency explosion
-            var osc = ctx.createOscillator();
-            var gain = ctx.createGain();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(80, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(20, ctx.currentTime + 1.5);
-            gain.gain.setValueAtTime(1, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 2);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(ctx.currentTime);
-            osc.stop(ctx.currentTime + 2);
-
-            // Noise burst for impact
-            var bufferSize = ctx.sampleRate * 2;
-            var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-            var data = buffer.getChannelData(0);
-            for (var i = 0; i < bufferSize; i++) {
-                data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.3));
-            }
-            var noise = ctx.createBufferSource();
-            noise.buffer = buffer;
-            var noiseGain = ctx.createGain();
-            noiseGain.gain.setValueAtTime(0.8, ctx.currentTime);
-            noiseGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.5);
-            noise.connect(noiseGain);
-            noiseGain.connect(ctx.destination);
-            noise.start(ctx.currentTime);
-
-            // Sub bass hit
-            var sub = ctx.createOscillator();
-            var subGain = ctx.createGain();
-            sub.type = 'sine';
-            sub.frequency.setValueAtTime(60, ctx.currentTime);
-            sub.frequency.exponentialRampToValueAtTime(10, ctx.currentTime + 2);
-            subGain.gain.setValueAtTime(1, ctx.currentTime);
-            subGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 2.5);
-            sub.connect(subGain);
-            subGain.connect(ctx.destination);
-            sub.start(ctx.currentTime);
-            sub.stop(ctx.currentTime + 2.5);
-        }
-
-        // Splash screen
-        var entered = false;
-        function enterSite() {
-            if (entered) return;
-            entered = true;
-            document.getElementById('splash').classList.add('hidden');
-            playBoom();
-        }
-        // Auto-enter after 4 seconds if they don't click
-        setTimeout(function() { enterSite(); }, 2000);
-
-        // Target: April 7, 2026 8:00 PM ET (Trump's deadline)
+        // Ceasefire countdown
         // 8 PM ET = midnight UTC (ET is UTC-4 in April/DST)
         // Ceasefire: 2 weeks from April 7 = April 21
         const targetDate = new Date('2026-04-21T20:00:00-04:00');
@@ -1530,37 +1473,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // Timezone display
-        function formatTimeInZone(date, timeZone) {
-            return date.toLocaleTimeString('es', {
-                timeZone: timeZone,
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true
-            }).toUpperCase();
-        }
-
-        // Show deadline in various timezones
-        var deadline = targetDate;
-        document.getElementById('tz-tehran').textContent = formatTimeInZone(deadline, 'Asia/Tehran');
-        document.getElementById('tz-buenosaires').textContent = formatTimeInZone(deadline, 'America/Argentina/Buenos_Aires');
-        document.getElementById('tz-madrid').textContent = formatTimeInZone(deadline, 'Europe/Madrid');
-        document.getElementById('tz-mexico').textContent = formatTimeInZone(deadline, 'America/Mexico_City');
-        document.getElementById('tz-london').textContent = formatTimeInZone(deadline, 'Europe/London');
-        document.getElementById('tz-tokyo').textContent = formatTimeInZone(deadline, 'Asia/Tokyo');
-        document.getElementById('tz-bogota').textContent = formatTimeInZone(deadline, 'America/Bogota');
-
-        // Show local time for visitor
-        var localTimeStr = deadline.toLocaleTimeString('es', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-        }).toUpperCase();
-        document.getElementById('tz-local-time').textContent = localTimeStr;
-
-        var tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        document.getElementById('tz-local-name').textContent = 'Tu zona horaria: ' + tzName;
 
         // Social proof ticker
         var tickerMessages = [
@@ -1842,12 +1754,7 @@
             document.querySelectorAll('[data-' + currentLang + ']').forEach(function(el) {
                 var val = el.getAttribute('data-' + currentLang);
                 // For elements that contain child nodes (like tz-local with a span), use innerHTML check
-                if (el.children.length > 0 && el.classList.contains('tz-local')) {
-                    // Special handling: preserve the child span
-                    var timeSpan = document.getElementById('tz-local-time');
-                    var timeVal = timeSpan ? timeSpan.textContent : '';
-                    el.innerHTML = val + '<span id="tz-local-time">' + timeVal + '</span>';
-                } else if (el.querySelector && el.querySelectorAll('*').length === 0) {
+                if (el.querySelector && el.querySelectorAll('*').length === 0) {
                     el.textContent = val;
                 } else if (el.children.length === 0) {
                     el.textContent = val;
@@ -1866,18 +1773,11 @@
             labels[1].textContent = translations.minutes[currentLang];
             labels[2].textContent = translations.seconds[currentLang];
 
-            document.querySelector('.splash-title').textContent = translations.splashTitle[currentLang];
-            document.querySelector('.splash-sub').textContent = translations.splashSub[currentLang];
-            document.querySelector('.splash-btn').textContent = translations.splashBtn[currentLang];
-            document.querySelector('.splash-hint').textContent = translations.splashHint[currentLang];
 
             var footerPs = document.querySelectorAll('.footer p');
             footerPs[0].innerHTML = translations.footer1[currentLang];
             footerPs[1].textContent = translations.footer2[currentLang];
 
-            // Update timezone name label
-            var tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            document.getElementById('tz-local-name').textContent = translations.tzName[currentLang] + tzName;
 
             // Update share links with current language
             updateShareLinks();
