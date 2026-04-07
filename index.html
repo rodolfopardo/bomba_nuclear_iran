@@ -1185,7 +1185,9 @@
 
         // Share functionality
         var pageUrl = 'https://bomba-nuclear-iran-trump-countdown.vercel.app/';
-        var shareText = 'Cuanto falta para la bomba atomica de Trump? Cuenta regresiva en vivo';
+        var shareTextEs = 'Cuanto falta para la bomba atomica de Trump? Cuenta regresiva en vivo. Vota: EEUU o Iran?';
+        var shareTextEn = "Trump's Iran nuclear bomb countdown LIVE. How long until the boom? Vote: USA or Iran?";
+        var shareText = currentLang === 'en' ? shareTextEn : shareTextEs;
 
         document.getElementById('share-x').href =
             'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
@@ -1365,6 +1367,12 @@
             var footerPs = document.querySelectorAll('.footer p');
             footerPs[0].innerHTML = translations.footer1[currentLang];
             footerPs[1].textContent = translations.footer2[currentLang];
+
+            // Update share links with current language
+            shareText = currentLang === 'en' ? shareTextEn : shareTextEs;
+            document.getElementById('share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+            document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+            document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText);
         }
     </script>
 </body>
