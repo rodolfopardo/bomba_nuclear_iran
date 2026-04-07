@@ -1646,13 +1646,13 @@
             if (hasVoted) return;
             hasVoted = true;
 
-            // GTM event
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': 'poll_vote',
-                'vote_choice': side === 'iran' ? 'Iran' : 'EEUU_Israel',
-                'vote_language': currentLang
-            });
+            // GA4 event
+            if (typeof gtag === 'function') {
+                gtag('event', 'poll_vote', {
+                    'vote_choice': side === 'iran' ? 'Iran' : 'EEUU_Israel',
+                    'vote_language': currentLang
+                });
+            }
 
             // Fake totals - Iran always wins, starts at 4000+
             var baseVotes = Math.floor(Math.random() * 3000) + 4000;
@@ -1702,10 +1702,10 @@
             document.getElementById('poll-share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(voteShareText) + '&url=' + encodeURIComponent(url);
             document.getElementById('poll-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(voteShareText);
 
-            // GTM share tracking on click
-            document.getElementById('poll-share-wa').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'whatsapp', 'vote_choice': votedFor}); };
-            document.getElementById('poll-share-x').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'twitter', 'vote_choice': votedFor}); };
-            document.getElementById('poll-share-tg').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'telegram', 'vote_choice': votedFor}); };
+            // GA4 share tracking on click
+            document.getElementById('poll-share-wa').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'whatsapp', 'vote_choice': votedFor}); };
+            document.getElementById('poll-share-x').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'twitter', 'vote_choice': votedFor}); };
+            document.getElementById('poll-share-tg').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'telegram', 'vote_choice': votedFor}); };
 
         }
 
