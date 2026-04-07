@@ -658,6 +658,151 @@
             margin-top: 25px;
         }
 
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 998;
+            cursor: pointer;
+            font-size: 28px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 8px;
+            padding: 6px 10px;
+            transition: all 0.3s;
+        }
+        .lang-toggle:hover {
+            background: rgba(255,0,0,0.1);
+            border-color: #ff0000;
+        }
+
+        /* Poll section */
+        .poll-section {
+            margin: 30px auto;
+            padding: 25px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            max-width: 500px;
+        }
+
+        .poll-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(10px, 2vw, 14px);
+            color: #ff3333;
+            margin-bottom: 20px;
+        }
+
+        .poll-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .poll-btn {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 140px;
+        }
+
+        .poll-btn .flag {
+            font-size: 40px;
+        }
+
+        .poll-btn-usa {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        .poll-btn-usa:hover {
+            background: rgba(59, 130, 246, 0.15);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .poll-btn-iran {
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+        .poll-btn-iran:hover {
+            background: rgba(34, 197, 94, 0.15);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .poll-btn.voted {
+            opacity: 0.6;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .poll-results {
+            display: none;
+        }
+
+        .poll-results.show {
+            display: block;
+        }
+
+        .poll-bar-container {
+            margin-bottom: 12px;
+        }
+
+        .poll-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .poll-bar-label .country {
+            color: #ff6666;
+        }
+
+        .poll-bar-label .percent {
+            color: #ff3333;
+            font-weight: 700;
+        }
+
+        .poll-bar {
+            height: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .poll-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1.5s ease;
+            width: 0;
+        }
+
+        .poll-bar-fill.usa {
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+        }
+
+        .poll-bar-fill.iran {
+            background: linear-gradient(90deg, #166534, #22c55e);
+        }
+
+        .poll-total {
+            font-size: 11px;
+            color: #666;
+            margin-top: 12px;
+        }
+
         /* Responsive mobile */
         @media (max-width: 480px) {
             .countdown {
@@ -694,6 +839,13 @@
             .timezone-info .tz-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .poll-btn {
+                min-width: 110px;
+                padding: 12px 20px;
+            }
+            .poll-btn .flag {
+                font-size: 30px;
+            }
             .splash-btn {
                 padding: 15px 25px;
                 font-size: 10px;
@@ -717,6 +869,9 @@
             <p class="splash-hint">* Subi el volumen para la experiencia completa 🔊</p>
         </div>
     </div>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="English">&#127468;&#127463;</div>
 
     <div class="bg-image"></div>
     <div class="warning-bar"></div>
@@ -792,8 +947,44 @@
             La realidad supera la ficcion. Todos los dias.
         </p>
 
+        <!-- Poll -->
+        <div class="poll-section">
+            <p class="poll-title" data-es="De que lado estas?" data-en="Whose side are you on?">De que lado estas?</p>
+            <div class="poll-options" id="poll-options">
+                <button class="poll-btn poll-btn-usa" onclick="vote('usa')">
+                    <span class="flag">&#127482;&#127480;</span>
+                    <span>EEUU</span>
+                </button>
+                <button class="poll-btn poll-btn-iran" onclick="vote('iran')">
+                    <span class="flag">&#127470;&#127479;</span>
+                    <span>IRAN</span>
+                </button>
+            </div>
+            <div class="poll-results" id="poll-results">
+                <div class="poll-bar-container">
+                    <div class="poll-bar-label">
+                        <span class="country">&#127482;&#127480; EEUU</span>
+                        <span class="percent" id="usa-percent">0%</span>
+                    </div>
+                    <div class="poll-bar">
+                        <div class="poll-bar-fill usa" id="usa-bar"></div>
+                    </div>
+                </div>
+                <div class="poll-bar-container">
+                    <div class="poll-bar-label">
+                        <span class="country">&#127470;&#127479; IRAN</span>
+                        <span class="percent" id="iran-percent">0%</span>
+                    </div>
+                    <div class="poll-bar">
+                        <div class="poll-bar-fill iran" id="iran-bar"></div>
+                    </div>
+                </div>
+                <p class="poll-total" id="poll-total"></p>
+            </div>
+        </div>
+
         <div class="buttons-section">
-            <p class="section-title">&#128227; Avisale a tu amigo!</p>
+            <p class="section-title" data-es="&#128227; Avisale a tu amigo!" data-en="&#128227; Tell your friend!">&#128227; Avisale a tu amigo!</p>
             <div class="share-buttons">
                 <a class="btn btn-x" id="share-x" href="#" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1047,6 +1238,130 @@
             toast.textContent = msg;
             toast.classList.add('show');
             setTimeout(function() { toast.classList.remove('show'); }, 3000);
+        }
+
+        // Poll
+        var hasVoted = false;
+        function vote(side) {
+            if (hasVoted) return;
+            hasVoted = true;
+
+            // Fake totals - Iran always wins, starts at 4000+
+            var baseVotes = Math.floor(Math.random() * 3000) + 4000;
+            var totalVotes = baseVotes;
+            var iranPercent, usaPercent;
+
+            if (side === 'iran') {
+                iranPercent = Math.floor(Math.random() * 8) + 62; // 62-69%
+            } else {
+                iranPercent = Math.floor(Math.random() * 8) + 58; // 58-65%
+            }
+            usaPercent = 100 - iranPercent;
+
+            // Disable buttons
+            document.querySelectorAll('.poll-btn').forEach(function(btn) {
+                btn.classList.add('voted');
+            });
+
+            // Show results
+            var results = document.getElementById('poll-results');
+            results.classList.add('show');
+
+            document.getElementById('usa-percent').textContent = usaPercent + '%';
+            document.getElementById('iran-percent').textContent = iranPercent + '%';
+            document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (currentLang === 'en' ? ' votes' : ' votos');
+
+            // Animate bars
+            setTimeout(function() {
+                document.getElementById('usa-bar').style.width = usaPercent + '%';
+                document.getElementById('iran-bar').style.width = iranPercent + '%';
+            }, 100);
+
+            showToast(currentLang === 'en' ? 'Vote registered!' : 'Voto registrado!');
+
+            // Keep incrementing votes
+            setInterval(function() {
+                totalVotes += Math.floor(Math.random() * 5) + 1;
+                // Slightly shift percentages
+                iranPercent = Math.min(72, iranPercent + (Math.random() > 0.7 ? 1 : 0));
+                usaPercent = 100 - iranPercent;
+                document.getElementById('usa-percent').textContent = usaPercent + '%';
+                document.getElementById('iran-percent').textContent = iranPercent + '%';
+                document.getElementById('usa-bar').style.width = usaPercent + '%';
+                document.getElementById('iran-bar').style.width = iranPercent + '%';
+                document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (currentLang === 'en' ? ' votes' : ' votos');
+            }, 2000);
+        }
+
+        // Language toggle
+        var currentLang = 'es';
+        var translations = {
+            title: { es: 'COUNTDOWN TO KABOOM', en: 'COUNTDOWN TO KABOOM' },
+            subtitle: { es: 'Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026', en: "Trump's Ultimatum: 8:00 PM ET - April 7, 2026" },
+            status: { es: '\u26A0 SISTEMA ARMADO - DETONACION EN PROGRESO \u26A0', en: '\u26A0 SYSTEM ARMED - DETONATION IN PROGRESS \u26A0' },
+            hours: { es: 'Horas', en: 'Hours' },
+            minutes: { es: 'Minutos', en: 'Minutes' },
+            seconds: { es: 'Segundos', en: 'Seconds' },
+            disclaimer: {
+                es: '* Esto es satira. No apoyamos la violencia. Pero si vas a destruir un pais entero, al menos merecemos un countdown decente, no? La realidad supera la ficcion. Todos los dias.',
+                en: "* This is satire. We don't support violence. But if you're going to destroy an entire country, at least we deserve a decent countdown, right? Reality surpasses fiction. Every day."
+            },
+            tzTitle: { es: '\u{1F310} Hora del impacto segun tu ubicacion', en: '\u{1F310} Impact time based on your location' },
+            tzLocal: { es: '\u{1F4CD} En tu zona: ', en: '\u{1F4CD} Your timezone: ' },
+            pollTitle: { es: 'De que lado estas?', en: 'Whose side are you on?' },
+            shareTitle: { es: '\u{1F4E3} Avisale a tu amigo!', en: '\u{1F4E3} Tell your friend!' },
+            subTitle: { es: '\u{1F514} Aviso del bombazo', en: '\u{1F514} Boom notification' },
+            subText: { es: 'Suscribete y te avisamos cuando todo se vaya al carajo. Servicio premium. Gratis mientras dure el planeta.', en: "Subscribe and we'll notify you when it all goes to hell. Premium service. Free while the planet lasts." },
+            subBtn: { es: 'SUSCRIBIRSE', en: 'SUBSCRIBE' },
+            liveCount: { es: ' personas esperando el bombazo en vivo', en: ' people waiting for the boom live' },
+            splashTitle: { es: 'ALERTA MUNDIAL', en: 'GLOBAL ALERT' },
+            splashSub: { es: 'Ultimatum de Trump a Iran - Countdown en vivo', en: "Trump's Ultimatum to Iran - Live Countdown" },
+            splashBtn: { es: 'ENTRAR SI TE ANIMAS', en: 'ENTER IF YOU DARE' },
+            splashHint: { es: '* Subi el volumen para la experiencia completa \u{1F50A}', en: '* Turn up the volume for the full experience \u{1F50A}' },
+            footer1: { es: 'Hecho con \u2764\uFE0F y mucho miedo \u2014 2026', en: 'Made with \u2764\uFE0F and a lot of fear \u2014 2026' },
+            footer2: { es: 'La humanidad fue bonita mientras duro', en: 'Humanity was beautiful while it lasted' }
+        };
+
+        function toggleLang() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            var toggle = document.getElementById('lang-toggle');
+
+            if (currentLang === 'en') {
+                toggle.innerHTML = '&#127466;&#127480;';
+                toggle.title = 'Espanol';
+            } else {
+                toggle.innerHTML = '&#127468;&#127463;';
+                toggle.title = 'English';
+            }
+
+            // Update texts
+            document.querySelector('.title').textContent = translations.title[currentLang];
+            document.querySelector('.subtitle').textContent = translations.subtitle[currentLang];
+            document.getElementById('status').textContent = translations.status[currentLang];
+
+            var labels = document.querySelectorAll('.time-label');
+            labels[0].textContent = translations.hours[currentLang];
+            labels[1].textContent = translations.minutes[currentLang];
+            labels[2].textContent = translations.seconds[currentLang];
+
+            document.querySelector('.disclaimer').textContent = translations.disclaimer[currentLang];
+            document.querySelector('.tz-title').textContent = translations.tzTitle[currentLang];
+            document.querySelector('.poll-title').textContent = translations.pollTitle[currentLang];
+
+            document.querySelectorAll('.section-title')[1].textContent = translations.shareTitle[currentLang];
+
+            document.querySelector('.subscribe-section .section-title').textContent = translations.subTitle[currentLang];
+            document.querySelector('.subscribe-section p:not(.section-title):not(.counter-live)').textContent = translations.subText[currentLang];
+            document.getElementById('subscribe-btn').textContent = translations.subBtn[currentLang];
+
+            document.querySelector('.splash-title').textContent = translations.splashTitle[currentLang];
+            document.querySelector('.splash-sub').textContent = translations.splashSub[currentLang];
+            document.querySelector('.splash-btn').textContent = translations.splashBtn[currentLang];
+            document.querySelector('.splash-hint').textContent = translations.splashHint[currentLang];
+
+            var footerPs = document.querySelectorAll('.footer p');
+            footerPs[0].innerHTML = translations.footer1[currentLang];
+            footerPs[1].textContent = translations.footer2[currentLang];
         }
     </script>
 </body>
