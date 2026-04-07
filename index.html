@@ -1526,16 +1526,16 @@
 
         // Share functionality
         var pageUrl = 'https://bomba-nuclear-iran-trump-countdown.vercel.app/';
-        var shareText = shareTexts[currentLang] || shareTexts.es;
 
-        document.getElementById('share-x').href =
-            'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
-
-        document.getElementById('share-wa').href =
-            'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
-
-        document.getElementById('share-tg').href =
-            'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText);
+        function updateShareLinks() {
+            var st = (typeof shareTexts !== 'undefined') ? (shareTexts[currentLang] || shareTexts.es) : 'Countdown Trump Iran';
+            document.getElementById('share-x').href =
+                'https://x.com/intent/tweet?text=' + encodeURIComponent(st) + '&url=' + encodeURIComponent(pageUrl);
+            document.getElementById('share-wa').href =
+                'https://wa.me/?text=' + encodeURIComponent(st + ' ' + pageUrl);
+            document.getElementById('share-tg').href =
+                'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(st);
+        }
 
         document.getElementById('copy-btn').addEventListener('click', function() {
             navigator.clipboard.writeText(pageUrl).then(function() {
@@ -1709,6 +1709,9 @@
             pt: 'Quanto falta para a bomba atomica de Trump? Contagem regressiva ao vivo. Vote: EUA ou Ira?'
         };
 
+        // Initialize share links now that shareTexts is defined
+        updateShareLinks();
+
         function applyLang() {
             var toggle = document.getElementById('lang-toggle');
 
@@ -1769,10 +1772,7 @@
             document.getElementById('tz-local-name').textContent = translations.tzName[currentLang] + tzName;
 
             // Update share links with current language
-            shareText = shareTexts[currentLang] || shareTexts.es;
-            document.getElementById('share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
-            document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
-            document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText);
+            updateShareLinks();
         }
 
         function toggleLang() {
