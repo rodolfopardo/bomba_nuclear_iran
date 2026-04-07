@@ -1117,6 +1117,12 @@
             </div>
         </div>
 
+        <!-- Breaking news banner -->
+        <div style="background:rgba(255,0,0,0.15);border:2px solid #ff0000;border-radius:10px;padding:15px;margin-bottom:20px;max-width:600px;margin-left:auto;margin-right:auto;animation:blink 2s infinite">
+            <p style="font-family:'Press Start 2P',monospace;font-size:10px;color:#ff0000;margin-bottom:8px;text-align:center">&#128680; ULTIMA HORA / BREAKING NEWS</p>
+            <p style="font-size:12px;color:#ff6666;text-align:center;line-height:1.6" data-es="Pakistan pide a EEUU que extienda el plazo. Hay silencio de radio entre Washington y Teheran. El reloj sigue corriendo." data-en="Pakistan asks US to extend the deadline. Radio silence between Washington and Tehran. The clock keeps ticking." data-pt="Paquistao pede aos EUA que estendam o prazo. Silencio de radio entre Washington e Teera. O relogio continua correndo.">Pakistan pide a EEUU que extienda el plazo. Hay silencio de radio entre Washington y Teheran. El reloj sigue corriendo.</p>
+        </div>
+
         <p class="status-text" id="status">&#9888; SISTEMA ARMADO - DETONACION EN PROGRESO &#9888;</p>
 
         <div class="timezone-info">
@@ -1195,6 +1201,20 @@
             </div>
         </div>
 
+        <!-- Crypto donations (after poll, before subscribe) -->
+        <div class="subscribe-section" style="margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto;border-color:rgba(255,153,0,0.3)">
+            <p class="section-title" style="color:#ff9900" data-es="&#9889; Si nos vamos a morir, al menos invitame un cafe" data-en="&#9889; If we're all gonna die, at least buy me a coffee" data-pt="&#9889; Se vamos todos morrer, pelo menos me paga um cafe">&#9889; Si nos vamos a morir, al menos invitame un cafe</p>
+            <p style="font-size:11px;color:#ff9966;margin-bottom:15px" data-es="Ultimo deseo antes del boom. Acepto Bitcoin. No hace falta mucho, con un satoshi me conformo." data-en="Last wish before the boom. I accept Bitcoin. Not much needed, one satoshi will do." data-pt="Ultimo desejo antes do boom. Aceito Bitcoin. Nao precisa muito, um satoshi ja ta bom.">Ultimo deseo antes del boom. Acepto Bitcoin. No hace falta mucho, con un satoshi me conformo.</p>
+            <div id="btc-qr" style="display:none;margin:15px auto;text-align:center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw&bgcolor=0a0a0a&color=ff9900" alt="Bitcoin QR" style="border-radius:8px;border:2px solid #ff9900">
+            </div>
+            <p style="font-size:9px;color:#aa7744;word-break:break-all;background:rgba(255,153,0,0.05);padding:10px;border-radius:5px;font-family:monospace;display:none" id="btc-address">bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw</p>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+                <button class="btn-subscribe" style="background:#ff9900;color:#000;border:2px solid #ff9900;font-size:11px" onclick="document.getElementById('btc-qr').style.display='block';document.getElementById('btc-address').style.display='block';this.textContent='&#9989; Listo!'" data-es="&#9749; Donar con Bitcoin" data-en="&#9749; Donate with Bitcoin" data-pt="&#9749; Doar com Bitcoin">&#9749; Donar con Bitcoin</button>
+                <button class="btn-subscribe" style="background:transparent;color:#ff9900;border:2px solid #ff9900;font-size:11px" onclick="navigator.clipboard.writeText('bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw');showToast('BTC address copied!')">&#128203; Copiar</button>
+            </div>
+        </div>
+
         <!-- Subscribe section (right after poll) -->
         <div class="subscribe-section">
             <p class="section-title" data-es="&#128276; No te pierdas el momento" data-en="&#128276; Don't miss the moment" data-pt="&#128276; Nao perca o momento">&#128276; No te pierdas el momento</p>
@@ -1238,20 +1258,6 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                     Copiar Link
                 </button>
-            </div>
-        </div>
-
-        <!-- Crypto donations -->
-        <div class="subscribe-section" style="margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto">
-            <p class="section-title" data-es="&#9889; Apoya este proyecto con Bitcoin" data-en="&#9889; Support this project with Bitcoin" data-pt="&#9889; Apoie este projeto com Bitcoin">&#9889; Apoya este proyecto con Bitcoin</p>
-            <p style="font-size:11px;color:#ff6666;margin-bottom:15px" data-es="Tu ultimo acto de generosidad antes del apocalipsis" data-en="Your last act of generosity before the apocalypse" data-pt="Seu ultimo ato de generosidade antes do apocalipse">Tu ultimo acto de generosidad antes del apocalipsis</p>
-            <div id="btc-qr" style="display:none;margin:15px auto;text-align:center">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw&bgcolor=0a0a0a&color=ff0000" alt="Bitcoin QR" style="border-radius:8px;border:2px solid #ff0000">
-            </div>
-            <p style="font-size:9px;color:#aa4444;word-break:break-all;background:rgba(255,0,0,0.05);padding:10px;border-radius:5px;font-family:monospace;display:none" id="btc-address">bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw</p>
-            <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
-                <button class="btn-subscribe" style="background:transparent;color:#ff9900;border:2px solid #ff9900;font-size:11px" onclick="document.getElementById('btc-qr').style.display='block';document.getElementById('btc-address').style.display='block';this.textContent='&#9989;'" data-es="&#8383; Mostrar QR + Wallet" data-en="&#8383; Show QR + Wallet" data-pt="&#8383; Mostrar QR + Carteira">&#8383; Mostrar QR + Wallet</button>
-                <button class="btn-subscribe" style="background:transparent;color:#ff9900;border:2px solid #ff9900;font-size:11px" onclick="navigator.clipboard.writeText('bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw');showToast('BTC address copied!')">&#128203; Copiar</button>
             </div>
         </div>
 
