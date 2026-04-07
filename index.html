@@ -665,32 +665,6 @@
             50% { transform: translateY(10px); }
         }
 
-        /* Coffee button */
-        .coffee-section {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .btn-coffee {
-            font-family: 'Orbitron', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, #ff813f, #ffdd00);
-            border: none;
-            border-radius: 8px;
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            letter-spacing: 1px;
-        }
-
-        .btn-coffee:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 221, 0, 0.5);
-        }
-
         /* Language toggle */
         .lang-toggle {
             position: fixed;
@@ -1047,21 +1021,30 @@
         <div class="arrow-down" style="text-align:center;margin:20px 0;font-size:30px;color:#ff3333;animation:bounce 1.5s infinite">&#8595;&#8595;&#8595;</div>
 
         <div class="subscribe-section">
-            <p class="section-title">&#128276; Aviso del bombazo</p>
-            <p>Suscribete y te avisamos cuando todo se vaya al carajo. Servicio premium. Gratis mientras dure el planeta.</p>
-            <div class="subscribe-form">
-                <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Email para notificaciones">
-                <button class="btn-subscribe" id="subscribe-btn">SUSCRIBIRSE</button>
-            </div>
-            <div class="counter-live">
-                <span class="dot"></span>
-                <span id="live-count">4,827</span> personas esperando el bombazo en vivo
-            </div>
-        </div>
+            <p class="section-title" data-es="&#128276; No te pierdas el momento" data-en="&#128276; Don't miss the moment">&#128276; No te pierdas el momento</p>
+            <p data-es="Elegí como queres enterarte cuando todo explote:" data-en="Choose how you want to know when it all blows up:">Elegí como queres enterarte cuando todo explote:</p>
 
-        <!-- Coffee -->
-        <div class="coffee-section">
-            <a href="https://buymeacoffee.com/rodolfopardo" target="_blank" rel="noopener noreferrer" class="btn-coffee" data-es="&#9749; Si sobrevivimos, merezco un cafecito" data-en="&#9749; If we survive, I deserve a coffee">&#9749; Si vamos a morir, merezco un cafecito</a>
+            <div style="display:flex;flex-direction:column;gap:15px;margin-top:15px;align-items:center">
+                <!-- Email subscription -->
+                <div style="width:100%;max-width:400px">
+                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#9993; Por email:" data-en="&#9993; By email:">&#9993; Por email:</p>
+                    <div class="subscribe-form">
+                        <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Email para notificaciones">
+                        <button class="btn-subscribe" id="subscribe-btn">OK</button>
+                    </div>
+                </div>
+
+                <!-- Push notification -->
+                <div style="width:100%;max-width:400px">
+                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#128276; Notificacion push (instantanea):" data-en="&#128276; Push notification (instant):">&#128276; Notificacion push (instantanea):</p>
+                    <button class="btn-subscribe" id="push-btn" style="width:100%;background:transparent;color:#ff0000;border:2px solid #ff0000" onclick="requestPush()" data-es="ACTIVAR ALERTAS PUSH" data-en="ENABLE PUSH ALERTS">ACTIVAR ALERTAS PUSH</button>
+                </div>
+            </div>
+
+            <div class="counter-live" style="margin-top:15px">
+                <span class="dot"></span>
+                <span id="live-count">4,827</span> <span data-es="personas esperando el bombazo en vivo" data-en="people waiting for the boom live">personas esperando el bombazo en vivo</span>
+            </div>
         </div>
 
         <div class="footer">
@@ -1274,15 +1257,6 @@
             var btn = document.getElementById('subscribe-btn');
             btn.textContent = 'ENVIANDO...';
             btn.disabled = true;
-            // Request push notification permission
-            if ('Notification' in window && Notification.permission === 'default') {
-                Notification.requestPermission().then(function(perm) {
-                    if (perm === 'granted') {
-                        new Notification('ALERTA BOMBA', { body: 'Suscrito! Te avisaremos cuando explote todo.', icon: '💣' });
-                    }
-                });
-            }
-
             fetch('https://formspree.io/f/mykboaaj', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -1305,6 +1279,27 @@
                 btn.disabled = false;
             });
         });
+
+        // Push notification request
+        function requestPush() {
+            var btn = document.getElementById('push-btn');
+            if (window.OneSignal) {
+                OneSignalDeferred.push(function(OneSignal) {
+                    OneSignal.Slidedown.promptPush();
+                });
+                btn.textContent = currentLang === 'en' ? 'ALERTS ENABLED' : 'ALERTAS ACTIVADAS';
+                btn.style.background = '#ff0000';
+                btn.style.color = '#000';
+                btn.disabled = true;
+                // Bump counter
+                var el = document.getElementById('live-count');
+                var current = parseInt(el.textContent.replace(/\./g, '').replace(/,/g, ''));
+                el.textContent = (current + 1).toLocaleString('es');
+                showToast(currentLang === 'en' ? 'Push alerts activated!' : 'Alertas push activadas!');
+            } else {
+                showToast(currentLang === 'en' ? 'Error loading notifications' : 'Error cargando notificaciones');
+            }
+        }
 
         function showToast(msg) {
             var toast = document.getElementById('toast');
@@ -1436,9 +1431,6 @@
             var footerPs = document.querySelectorAll('.footer p');
             footerPs[0].innerHTML = translations.footer1[currentLang];
             footerPs[1].textContent = translations.footer2[currentLang];
-
-            // Update coffee button
-            document.querySelector('.btn-coffee').textContent = translations.coffee[currentLang];
 
             // Update share links with current language
             shareText = currentLang === 'en' ? shareTextEn : shareTextEs;
