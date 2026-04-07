@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trump Iran Bomb Countdown - Live Ultimatum Timer 8PM ET April 7 2026</title>
-    <meta name="description" content="Live bomb countdown to Trump's ultimatum for Iran. Will Trump bomb Iran tonight? Real-time countdown timer to 8PM ET deadline. Vote USA vs Iran. Trump warns: the entire country can be finished in one night.">
-    <meta name="keywords" content="countdown trump iran, countdown to deadline trump, trump iran ultimatum, trump warns consequences iran, iran strait of hormuz, trump iran 8pm, iran countdown live, trump threatens iran, wipe out civilization iran, iran nuclear countdown, trump deadline iran today, countdown for iran">
+    <title>Trump Iran Ceasefire Countdown - 2 Week Timer | Who Won? Vote Now</title>
+    <meta name="description" content="Trump announced a 2-week ceasefire with Iran. The countdown to the end of the ceasefire is live. Who won? Vote USA+Israel vs Iran. Will the peace last? Real-time countdown.">
+    <meta name="keywords" content="trump iran ceasefire, alto el fuego iran, ceasefire countdown, trump iran peace, who won ceasefire, iran strait of hormuz open, trump ceasefire 2 weeks, iran usa ceasefire, iran israel ceasefire, countdown ceasefire iran, cese al fuego iran">
     <meta name="author" content="Humanity (while it lasts)">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://bomba-nuclear-iran-trump-countdown.vercel.app/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Bomba Iran - Countdown de Trump EN VIVO / Trump Iran Countdown LIVE">
-    <meta property="og:description" content="Cuanto falta para la bomba? Cuenta regresiva en vivo. Vota EEUU o Iran. / Live countdown to Trump's 8PM ET deadline. Vote USA vs Iran.">
+    <meta property="og:title" content="Alto el fuego Trump-Iran: Quien gano? / Ceasefire: Who won? Vote!">
+    <meta property="og:description" content="Cese al fuego de 2 semanas. Quien gano? Vota EEUU+Israel o Iran. Countdown en vivo. / 2-week ceasefire. Who won? Vote now.">
     <meta property="og:url" content="https://bomba-nuclear-iran-trump-countdown.vercel.app/">
     <meta property="og:image" content="https://bomba-nuclear-iran-trump-countdown.vercel.app/og.png">
     <meta property="og:image:width" content="1200">
@@ -25,8 +25,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bomba Iran - Countdown de Trump EN VIVO / Trump Iran Countdown LIVE">
-    <meta name="twitter:description" content="Cuanto falta para la bomba? Cuenta regresiva en vivo. Vota EEUU o Iran. / Live countdown to Trump's 8PM ET deadline. Vote USA vs Iran.">
+    <meta name="twitter:title" content="Alto el fuego Trump-Iran: Quien gano? / Ceasefire: Who won? Vote!">
+    <meta name="twitter:description" content="Cese al fuego de 2 semanas. Quien gano? Vota EEUU+Israel o Iran. / 2-week ceasefire countdown live.">
     <meta name="twitter:image" content="https://bomba-nuclear-iran-trump-countdown.vercel.app/og.png">
 
     <!-- Favicon -->
@@ -1094,8 +1094,8 @@
 
     <div class="container">
         <div class="icon-bomb">💣</div>
-        <h1 class="title">COUNTDOWN TO KABOOM</h1>
-        <p class="subtitle">Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026</p>
+        <h1 class="title">ALTO EL FUEGO</h1>
+        <p class="subtitle">Cuanto dura la paz? Countdown de las 2 semanas</p>
 
         <div class="counter-live" style="margin-bottom:15px;font-size:13px">
             <span class="dot"></span>
@@ -1103,6 +1103,10 @@
         </div>
 
         <div class="countdown" id="countdown">
+            <div class="time-block">
+                <div class="time-number" id="days">14</div>
+                <div class="time-label" data-es="Dias" data-en="Days" data-pt="Dias">Dias</div>
+            </div>
             <div class="time-block">
                 <div class="time-number" id="hours">00</div>
                 <div class="time-label">Horas</div>
@@ -1124,7 +1128,7 @@
             <p style="font-size:10px;color:#ff6666;text-align:center;margin-top:8px" data-es="DETONACION PAUSADA... por ahora." data-en="DETONATION PAUSED... for now." data-pt="DETONACAO PAUSADA... por enquanto.">DETONACION PAUSADA... por ahora.</p>
         </div>
 
-        <p class="status-text" id="status">&#9888; SISTEMA ARMADO - DETONACION EN PROGRESO &#9888;</p>
+        <p class="status-text" id="status" style="color:#22c55e">&#9203; ALTO EL FUEGO ACTIVO - SE ACABA EN 14 DIAS &#9203;</p>
 
         <div class="timezone-info">
             <p class="tz-title" data-es="&#127760; Hora del impacto segun tu ubicacion" data-en="&#127760; Impact time based on your location" data-pt="&#127760; Hora do impacto conforme sua localizacao">&#127760; Hora del impacto segun tu ubicacion</p>
@@ -1168,11 +1172,11 @@
 
         <!-- Poll (right after timezone) -->
         <div class="poll-section">
-            <p class="poll-title" data-es="De que lado estas?" data-en="Whose side are you on?" data-pt="De que lado voce esta?">De que lado estas?</p>
+            <p class="poll-title" data-es="Quien gano el cese al fuego?" data-en="Who won the ceasefire?" data-pt="Quem ganhou o cessar-fogo?">Quien gano el cese al fuego?</p>
             <div class="poll-options" id="poll-options">
                 <button class="poll-btn poll-btn-usa" onclick="vote('usa')">
-                    <span class="flag">&#127482;&#127480;</span>
-                    <span>EEUU</span>
+                    <span class="flag">&#127482;&#127480;&#127470;&#127473;</span>
+                    <span>EEUU + Israel</span>
                 </button>
                 <button class="poll-btn poll-btn-iran" onclick="vote('iran')">
                     <span class="flag">&#127470;&#127479;</span>
@@ -1524,7 +1528,8 @@
 
         // Target: April 7, 2026 8:00 PM ET (Trump's deadline)
         // 8 PM ET = midnight UTC (ET is UTC-4 in April/DST)
-        const targetDate = new Date('2026-04-08T00:00:00Z');
+        // Ceasefire: 2 weeks from April 7 = April 21
+        const targetDate = new Date('2026-04-21T20:00:00-04:00');
 
         function updateCountdown() {
             const now = new Date();
@@ -1535,21 +1540,16 @@
                 return;
             }
 
-            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
+            var daysEl = document.getElementById('days');
+            if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            // Increase urgency
-            if (diff < 60000) {
-                document.getElementById('status').textContent = '\u{1F6A8} IMPACTO INMINENTE \u{1F6A8}';
-                document.body.style.background = diff % 1000 < 500 ? '#1a0000' : '#0a0a0a';
-            } else if (diff < 300000) {
-                document.getElementById('status').textContent = '\u26A0\uFE0F MENOS DE 5 MINUTOS - BUSCA REFUGIO \u26A0\uFE0F';
-            }
         }
 
         function triggerExplosion() {
@@ -1797,9 +1797,9 @@
         var currentLang = detectLang();
         var langCycle = ['es', 'en', 'pt'];
         var translations = {
-            title: { es: 'COUNTDOWN TO KABOOM', en: 'COUNTDOWN TO KABOOM', pt: 'COUNTDOWN TO KABOOM' },
-            subtitle: { es: 'Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026', en: "Trump's Ultimatum: 8:00 PM ET - April 7, 2026", pt: 'Ultimato de Trump: 8:00 PM ET - 7 de Abril 2026' },
-            status: { es: '\u26A0 SISTEMA ARMADO - DETONACION EN PROGRESO \u26A0', en: '\u26A0 SYSTEM ARMED - DETONATION IN PROGRESS \u26A0', pt: '\u26A0 SISTEMA ARMADO - DETONACAO EM PROGRESSO \u26A0' },
+            title: { es: 'ALTO EL FUEGO', en: 'CEASEFIRE', pt: 'CESSAR-FOGO' },
+            subtitle: { es: 'Cuanto dura la paz? Countdown de las 2 semanas', en: 'How long will peace last? 2-week countdown', pt: 'Quanto tempo dura a paz? Contagem de 2 semanas' },
+            status: { es: '\u23F3 ALTO EL FUEGO ACTIVO - SE ACABA EN 14 DIAS \u23F3', en: '\u23F3 CEASEFIRE ACTIVE - ENDS IN 14 DAYS \u23F3', pt: '\u23F3 CESSAR-FOGO ATIVO - TERMINA EM 14 DIAS \u23F3' },
             hours: { es: 'Horas', en: 'Hours', pt: 'Horas' },
             minutes: { es: 'Minutos', en: 'Minutes', pt: 'Minutos' },
             seconds: { es: 'Segundos', en: 'Seconds', pt: 'Segundos' },
@@ -1811,7 +1811,7 @@
             tzTitle: { es: '\u{1F310} Hora del impacto segun tu ubicacion', en: '\u{1F310} Impact time based on your location', pt: '\u{1F310} Hora do impacto conforme sua localizacao' },
             tzLocal: { es: '\u{1F4CD} En tu zona: ', en: '\u{1F4CD} Your timezone: ', pt: '\u{1F4CD} Na sua zona: ' },
             tzName: { es: 'Tu zona horaria: ', en: 'Your timezone: ', pt: 'Seu fuso horario: ' },
-            pollTitle: { es: 'De que lado estas?', en: 'Whose side are you on?', pt: 'De que lado voce esta?' },
+            pollTitle: { es: 'Quien gano el cese al fuego?', en: 'Who won the ceasefire?', pt: 'Quem ganhou o cessar-fogo?' },
             shareTitle: { es: '\u{1F4E3} Avisale a tu amigo!', en: '\u{1F4E3} Tell your friend!', pt: '\u{1F4E3} Avise seu amigo!' },
             subTitle: { es: '\u{1F514} No te pierdas el momento', en: "\u{1F514} Don't miss the moment", pt: '\u{1F514} Nao perca o momento' },
             subText: { es: 'Elegi como queres enterarte cuando todo explote:', en: "Choose how you want to know when it all blows up:", pt: 'Escolha como quer saber quando tudo explodir:' },
@@ -1829,9 +1829,9 @@
         };
 
         var shareTexts = {
-            es: 'Cuanto falta para la bomba atomica de Trump? Cuenta regresiva en vivo. Vota: EEUU o Iran?',
-            en: "Trump's Iran nuclear bomb countdown LIVE. How long until the boom? Vote: USA or Iran?",
-            pt: 'Quanto falta para a bomba atomica de Trump? Contagem regressiva ao vivo. Vote: EUA ou Ira?'
+            es: 'Alto el fuego Trump-Iran! Quien gano? Countdown de 2 semanas en vivo. Vota: EEUU+Israel o Iran?',
+            en: "Trump-Iran ceasefire! Who won? 2-week countdown LIVE. Vote: USA+Israel or Iran?",
+            pt: 'Cessar-fogo Trump-Ira! Quem ganhou? Contagem de 2 semanas ao vivo. Vote: EUA+Israel ou Ira?'
         };
 
         // Initialize share links now that shareTexts is defined
