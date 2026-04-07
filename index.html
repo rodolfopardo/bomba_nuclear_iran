@@ -665,6 +665,49 @@
             50% { transform: translateY(10px); }
         }
 
+        /* Social proof ticker */
+        .social-ticker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 998;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            color: #ff6666;
+            max-width: 320px;
+            transform: translateX(-400px);
+            transition: transform 0.5s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .social-ticker.show {
+            transform: translateX(0);
+        }
+
+        .social-ticker .ticker-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1s infinite;
+        }
+
+        @media (max-width: 480px) {
+            .social-ticker {
+                bottom: 15px;
+                left: 10px;
+                right: 10px;
+                max-width: none;
+                font-size: 10px;
+            }
+        }
+
         /* Language toggle */
         .lang-toggle {
             position: fixed;
@@ -1054,7 +1097,10 @@
         <h1 class="title">COUNTDOWN TO KABOOM</h1>
         <p class="subtitle">Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026</p>
 
-        <div class="pulse-dot"></div>
+        <div class="counter-live" style="margin-bottom:15px;font-size:13px">
+            <span class="dot"></span>
+            <span id="viewers-count">12,847</span> <span data-es="personas viendo ahora" data-en="people watching now" data-pt="pessoas assistindo agora">personas viendo ahora</span>
+        </div>
 
         <div class="countdown" id="countdown">
             <div class="time-block">
@@ -1307,6 +1353,11 @@
         <div class="boom-sub">Fin de la transmision. Fue un placer conocerlos.</div>
     </div>
 
+    <div class="social-ticker" id="social-ticker">
+        <span class="ticker-dot"></span>
+        <span id="ticker-text"></span>
+    </div>
+
     <div class="toast" id="toast"></div>
 
     <!-- OneSignal Push Notifications -->
@@ -1520,6 +1571,49 @@
 
         var tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
         document.getElementById('tz-local-name').textContent = 'Tu zona horaria: ' + tzName;
+
+        // Social proof ticker
+        var tickerMessages = [
+            { es: 'Alguien de Brasil voto por Iran', en: 'Someone from Brazil voted Iran', pt: 'Alguem do Brasil votou no Ira' },
+            { es: 'Alguien de EEUU compartio el link', en: 'Someone from USA shared the link', pt: 'Alguem dos EUA compartilhou o link' },
+            { es: 'Alguien de Mexico se suscribio', en: 'Someone from Mexico subscribed', pt: 'Alguem do Mexico se inscreveu' },
+            { es: 'Alguien de Argentina voto por EEUU', en: 'Someone from Argentina voted USA', pt: 'Alguem da Argentina votou nos EUA' },
+            { es: 'Alguien de Colombia activo alertas push', en: 'Someone from Colombia enabled push alerts', pt: 'Alguem da Colombia ativou alertas push' },
+            { es: 'Alguien de Espana compartio en WhatsApp', en: 'Someone from Spain shared on WhatsApp', pt: 'Alguem da Espanha compartilhou no WhatsApp' },
+            { es: 'Alguien de Peru voto por Iran', en: 'Someone from Peru voted Iran', pt: 'Alguem do Peru votou no Ira' },
+            { es: 'Alguien de Chile compartio en Twitter', en: 'Someone from Chile shared on Twitter', pt: 'Alguem do Chile compartilhou no Twitter' },
+            { es: 'Alguien de UK voto por Iran', en: 'Someone from UK voted Iran', pt: 'Alguem do Reino Unido votou no Ira' },
+            { es: 'Alguien de Alemania se suscribio', en: 'Someone from Germany subscribed', pt: 'Alguem da Alemanha se inscreveu' },
+            { es: 'Alguien de Francia compartio el link', en: 'Someone from France shared the link', pt: 'Alguem da Franca compartilhou o link' },
+            { es: 'Alguien de Canada voto por EEUU', en: 'Someone from Canada voted USA', pt: 'Alguem do Canada votou nos EUA' },
+            { es: 'Alguien de India activo alertas push', en: 'Someone from India enabled push alerts', pt: 'Alguem da India ativou alertas push' },
+            { es: 'Alguien de Japon voto por Iran', en: 'Someone from Japan voted Iran', pt: 'Alguem do Japao votou no Ira' }
+        ];
+
+        function showTicker() {
+            var ticker = document.getElementById('social-ticker');
+            var msg = tickerMessages[Math.floor(Math.random() * tickerMessages.length)];
+            document.getElementById('ticker-text').textContent = msg[currentLang] || msg.es;
+            ticker.classList.add('show');
+            setTimeout(function() { ticker.classList.remove('show'); }, 4000);
+        }
+
+        // Start ticker after 5 seconds, then every 6-12 seconds
+        setTimeout(function() {
+            showTicker();
+            setInterval(function() {
+                setTimeout(showTicker, Math.random() * 6000);
+            }, 8000);
+        }, 5000);
+
+        // Viewers counter - fluctuates up and down
+        setInterval(function() {
+            var el = document.getElementById('viewers-count');
+            var current = parseInt(el.textContent.replace(/\./g, '').replace(/,/g, ''));
+            var change = Math.floor(Math.random() * 60) - 25;
+            var newVal = Math.max(8000, current + change);
+            el.textContent = newVal.toLocaleString('es');
+        }, 1500);
 
         // Fake live counter
         setInterval(() => {
