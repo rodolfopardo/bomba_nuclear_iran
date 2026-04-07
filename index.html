@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomba Atomica en Iran - Countdown de Trump | Cuenta Regresiva en Vivo</title>
+    <meta name="description" content="Cuenta regresiva en vivo del countdown mas absurdo de la historia. Porque si van a destruir una civilizacion, al menos merecemos un timer decente.">
+    <meta name="keywords" content="iran, bomba nuclear, countdown, cuenta regresiva, satira, geopolitica, EEUU, medio oriente">
+    <meta name="author" content="La Humanidad (mientras dure)">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rodolfopardo.github.io/bomba_nuclear_iran/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bomba Atomica en Iran - Countdown de Trump">
+    <meta property="og:description" content="La cuenta regresiva ha comenzado. Suscribete para recibir la notificacion del bombazo. Satira en tiempos de apocalipsis.">
+    <meta property="og:url" content="https://rodolfopardo.github.io/bomba_nuclear_iran/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1590845947698-dc1d35bde60a?w=1200&h=630&fit=crop">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Bomba Countdown">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bomba Atomica en Iran - Countdown de Trump">
+    <meta name="twitter:description" content="La cuenta regresiva ha comenzado. Porque si van a destruir todo, al menos merecemos un countdown decente.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1590845947698-dc1d35bde60a?w=1200&h=630&fit=crop">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💣</text></svg>">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ff3333;
+            font-family: 'Orbitron', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1590845947698-dc1d35bde60a?w=1920&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .warning-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff0000,
+                #ff0000 20px,
+                #000 20px,
+                #000 40px
+            );
+            height: 8px;
+            z-index: 999;
+        }
+
+        .warning-bar-bottom {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff0000,
+                #ff0000 20px,
+                #000 20px,
+                #000 40px
+            );
+            height: 8px;
+            z-index: 999;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-bomb {
+            font-size: 80px;
+            animation: shake 0.5s infinite;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+
+        .title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(18px, 4vw, 36px);
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.4);
+            margin-bottom: 5px;
+            animation: flicker 3s infinite;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: clamp(10px, 2vw, 14px);
+            color: #ff6666;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        @keyframes flicker {
+            0%, 95%, 100% { opacity: 1; }
+            96% { opacity: 0.4; }
+            97% { opacity: 1; }
+            98% { opacity: 0.3; }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 3vw, 30px);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .time-block {
+            background: linear-gradient(180deg, rgba(26, 0, 0, 0.9) 0%, rgba(13, 0, 0, 0.9) 100%);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: clamp(15px, 3vw, 25px) clamp(10px, 2vw, 20px);
+            min-width: clamp(70px, 15vw, 120px);
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3), inset 0 0 15px rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .time-block::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            width: 90%;
+            height: 1px;
+            background: rgba(255, 0, 0, 0.2);
+        }
+
+        .time-number {
+            font-size: clamp(32px, 8vw, 64px);
+            font-weight: 900;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: clamp(8px, 1.5vw, 12px);
+            color: #ff6666;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background: #ff0000;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: pulse 1s infinite;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+        }
+
+        .status-text {
+            font-size: clamp(10px, 1.8vw, 14px);
+            color: #ff4444;
+            margin-bottom: 30px;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .timezone-info {
+            max-width: 550px;
+            margin: 0 auto 30px;
+            padding: 20px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .timezone-info .tz-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            color: #ff4444;
+            margin-bottom: 15px;
+        }
+
+        .timezone-info .tz-local {
+            font-size: clamp(16px, 3vw, 24px);
+            font-weight: 900;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .timezone-info .tz-name {
+            font-size: 11px;
+            color: #ff6666;
+            margin-bottom: 12px;
+        }
+
+        .timezone-info .tz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .timezone-info .tz-item {
+            font-size: 10px;
+            color: #aa4444;
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.15);
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .timezone-info .tz-item .tz-city {
+            color: #ff6666;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 3px;
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+        .timezone-info .tz-item .tz-time {
+            color: #ff3333;
+            font-weight: 900;
+            font-size: 13px;
+        }
+
+        .timezone-info .tz-item.highlight {
+            border-color: #ff0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .disclaimer {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .buttons-section {
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(10px, 2vw, 14px);
+            color: #ff3333;
+            margin-bottom: 20px;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 12px 24px;
+            border: 2px solid;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-x {
+            background: rgba(0,0,0,0.5);
+            border-color: #fff;
+            color: #fff;
+        }
+        .btn-x:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-whatsapp {
+            background: rgba(0,0,0,0.5);
+            border-color: #25D366;
+            color: #25D366;
+        }
+        .btn-whatsapp:hover {
+            background: #25D366;
+            color: #000;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-telegram {
+            background: rgba(0,0,0,0.5);
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+        .btn-telegram:hover {
+            background: #0088cc;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+        }
+
+        .btn-copy {
+            background: rgba(0,0,0,0.5);
+            border-color: #ff9900;
+            color: #ff9900;
+        }
+        .btn-copy:hover {
+            background: #ff9900;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.5);
+        }
+
+        .subscribe-section {
+            margin-top: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-section p {
+            font-size: 11px;
+            color: #ff6666;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form input {
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            padding: 12px 16px;
+            background: rgba(26, 0, 0, 0.8);
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            color: #ff3333;
+            outline: none;
+            width: 250px;
+            max-width: 100%;
+        }
+
+        .subscribe-form input::placeholder {
+            color: #662222;
+        }
+
+        .subscribe-form input:focus {
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .btn-subscribe {
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 12px 24px;
+            background: #ff0000;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            color: #000;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            background: transparent;
+            color: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .counter-live {
+            font-size: 11px;
+            color: #ff4444;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .counter-live .dot {
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #ff0000;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 9999;
+            transition: transform 0.4s ease;
+            white-space: nowrap;
+            max-width: 90vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 10px;
+            color: #555;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer a {
+            color: #777;
+        }
+
+        /* Explosion animation */
+        .container.exploding {
+            animation: explode 1s forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.2); filter: brightness(10); }
+            100% { transform: scale(0); filter: brightness(20); opacity: 0; }
+        }
+
+        .explosion-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: flashBg 2s forwards;
+        }
+
+        @keyframes flashBg {
+            0% { background: white; }
+            30% { background: #ff4400; }
+            60% { background: #220000; }
+            100% { background: #0a0a0a; }
+        }
+
+        .explosion-screen .boom-text {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(40px, 10vw, 80px);
+            color: #ff0000;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+            animation: fadeInBoom 2s forwards;
+        }
+
+        @keyframes fadeInBoom {
+            0%, 50% { opacity: 0; transform: scale(3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .explosion-screen .boom-sub {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            color: #ff6666;
+            margin-top: 20px;
+            animation: fadeInBoom 3s forwards;
+        }
+
+        /* JSON-LD structured data is in the script below */
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="warning-bar"></div>
+    <div class="warning-bar-bottom"></div>
+
+    <div class="container">
+        <div class="icon-bomb">💣</div>
+        <h1 class="title">COUNTDOWN TO KABOOM</h1>
+        <p class="subtitle">Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026</p>
+
+        <div class="pulse-dot"></div>
+
+        <div class="countdown" id="countdown">
+            <div class="time-block">
+                <div class="time-number" id="hours">00</div>
+                <div class="time-label">Horas</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="minutes">00</div>
+                <div class="time-label">Minutos</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="seconds">00</div>
+                <div class="time-label">Segundos</div>
+            </div>
+        </div>
+
+        <p class="status-text" id="status">&#9888; SISTEMA ARMADO - DETONACION EN PROGRESO &#9888;</p>
+
+        <div class="timezone-info">
+            <p class="tz-title">&#127760; Hora del impacto segun tu ubicacion</p>
+            <p class="tz-local">&#128205; En tu zona: <span id="tz-local-time"></span></p>
+            <p class="tz-name" id="tz-local-name"></p>
+            <div class="tz-grid">
+                <div class="tz-item highlight">
+                    <span class="tz-city">WASHINGTON DC</span>
+                    <span class="tz-time">8:00 PM</span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">TEHRAN</span>
+                    <span class="tz-time" id="tz-tehran"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">BUENOS AIRES</span>
+                    <span class="tz-time" id="tz-buenosaires"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">MADRID</span>
+                    <span class="tz-time" id="tz-madrid"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">MEXICO DF</span>
+                    <span class="tz-time" id="tz-mexico"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">LONDRES</span>
+                    <span class="tz-time" id="tz-london"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">TOKYO</span>
+                    <span class="tz-time" id="tz-tokyo"></span>
+                </div>
+                <div class="tz-item">
+                    <span class="tz-city">BOGOTA</span>
+                    <span class="tz-time" id="tz-bogota"></span>
+                </div>
+            </div>
+        </div>
+
+        <p class="disclaimer">
+            * Esto es satira. No apoyamos la violencia. Pero si vas a destruir un pais entero,
+            al menos merecemos un countdown decente, no?
+            La realidad supera la ficcion. Todos los dias.
+        </p>
+
+        <div class="buttons-section">
+            <p class="section-title">&#128227; Avisale a tu amigo!</p>
+            <div class="share-buttons">
+                <a class="btn btn-x" id="share-x" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X (Twitter)
+                </a>
+                <a class="btn btn-whatsapp" id="share-wa" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <a class="btn btn-telegram" id="share-tg" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    Telegram
+                </a>
+                <button class="btn btn-copy" id="copy-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copiar Link
+                </button>
+            </div>
+        </div>
+
+        <div class="subscribe-section">
+            <p class="section-title">&#128276; Aviso del bombazo</p>
+            <p>Suscribete y te avisamos cuando todo se vaya al carajo. Servicio premium. Gratis mientras dure el planeta.</p>
+            <div class="subscribe-form">
+                <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Email para notificaciones">
+                <button class="btn-subscribe" id="subscribe-btn">SUSCRIBIRSE</button>
+            </div>
+            <div class="counter-live">
+                <span class="dot"></span>
+                <span id="live-count">4,827</span> personas esperando el bombazo en vivo
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
+            <p style="margin-top:5px">La humanidad fue bonita mientras duro</p>
+        </div>
+    </div>
+
+    <div class="explosion-screen" id="explosion-screen">
+        <div class="boom-text">BOOM</div>
+        <div class="boom-sub">Fin de la transmision. Fue un placer conocerlos.</div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Bomba Atomica en Iran - Countdown de Trump",
+        "description": "Cuenta regresiva satirica sobre la situacion geopolitica actual. Humor negro en tiempos de apocalipsis.",
+        "url": "https://rodolfopardo.github.io/bomba_nuclear_iran/",
+        "inLanguage": "es",
+        "datePublished": "2026-04-07",
+        "author": {
+            "@type": "Person",
+            "name": "Rodolfo Pardo"
+        }
+    }
+    </script>
+
+    <script>
+        // Target: April 7, 2026 8:00 PM ET (Trump's deadline)
+        // 8 PM ET = midnight UTC (ET is UTC-4 in April/DST)
+        const targetDate = new Date('2026-04-08T00:00:00Z');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                triggerExplosion();
+                return;
+            }
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            // Increase urgency
+            if (diff < 60000) {
+                document.getElementById('status').textContent = '\u{1F6A8} IMPACTO INMINENTE \u{1F6A8}';
+                document.body.style.background = diff % 1000 < 500 ? '#1a0000' : '#0a0a0a';
+            } else if (diff < 300000) {
+                document.getElementById('status').textContent = '\u26A0\uFE0F MENOS DE 5 MINUTOS - BUSCA REFUGIO \u26A0\uFE0F';
+            }
+        }
+
+        function triggerExplosion() {
+            document.querySelector('.container').classList.add('exploding');
+            setTimeout(() => {
+                document.getElementById('explosion-screen').style.display = 'flex';
+            }, 800);
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Timezone display
+        function formatTimeInZone(date, timeZone) {
+            return date.toLocaleTimeString('es', {
+                timeZone: timeZone,
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            }).toUpperCase();
+        }
+
+        // Show deadline in various timezones
+        var deadline = targetDate;
+        document.getElementById('tz-tehran').textContent = formatTimeInZone(deadline, 'Asia/Tehran');
+        document.getElementById('tz-buenosaires').textContent = formatTimeInZone(deadline, 'America/Argentina/Buenos_Aires');
+        document.getElementById('tz-madrid').textContent = formatTimeInZone(deadline, 'Europe/Madrid');
+        document.getElementById('tz-mexico').textContent = formatTimeInZone(deadline, 'America/Mexico_City');
+        document.getElementById('tz-london').textContent = formatTimeInZone(deadline, 'Europe/London');
+        document.getElementById('tz-tokyo').textContent = formatTimeInZone(deadline, 'Asia/Tokyo');
+        document.getElementById('tz-bogota').textContent = formatTimeInZone(deadline, 'America/Bogota');
+
+        // Show local time for visitor
+        var localTimeStr = deadline.toLocaleTimeString('es', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        }).toUpperCase();
+        document.getElementById('tz-local-time').textContent = localTimeStr;
+
+        var tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById('tz-local-name').textContent = 'Tu zona horaria: ' + tzName;
+
+        // Fake live counter
+        setInterval(() => {
+            const el = document.getElementById('live-count');
+            const current = parseInt(el.textContent.replace(/,/g, ''));
+            const change = Math.floor(Math.random() * 20) - 5;
+            el.textContent = (current + change).toLocaleString('es');
+        }, 3000);
+
+        // Share functionality
+        const pageUrl = window.location.href;
+        const shareText = '\u{1F4A3} La cuenta regresiva ha comenzado... Cuanto falta para el BOOM? \u{1F440}';
+
+        document.getElementById('share-x').href =
+            'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+
+        document.getElementById('share-wa').href =
+            'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+        document.getElementById('share-tg').href =
+            'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText);
+
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            navigator.clipboard.writeText(pageUrl).then(function() {
+                showToast('Link copiado! Ahora esparcelo como radiacion \u2622\uFE0F');
+            });
+        });
+
+        // Subscribe
+        document.getElementById('subscribe-btn').addEventListener('click', function() {
+            var email = document.getElementById('email-input').value;
+            if (!email || !email.includes('@')) {
+                showToast('Pon un email real... o no, total ya nada importa');
+                return;
+            }
+            // Send to Formspree
+            var btn = document.getElementById('subscribe-btn');
+            btn.textContent = 'ENVIANDO...';
+            btn.disabled = true;
+            fetch('https://formspree.io/f/rodypardo@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ email: email, _subject: 'Nuevo suscriptor bomba countdown' })
+            }).then(function(res) {
+                if (res.ok) {
+                    showToast('\u{1F389} Suscrito! Te avisaremos... si seguimos vivos \u{1F480}');
+                    document.getElementById('email-input').value = '';
+                    var el = document.getElementById('live-count');
+                    var current = parseInt(el.textContent.replace(/\./g, '').replace(/,/g, ''));
+                    el.textContent = (current + 1).toLocaleString('es');
+                } else {
+                    showToast('Error... hasta los servidores tienen miedo');
+                }
+                btn.textContent = 'SUSCRIBIRSE';
+                btn.disabled = false;
+            }).catch(function() {
+                showToast('Error de red... capaz ya empezo el bombardeo');
+                btn.textContent = 'SUSCRIBIRSE';
+                btn.disabled = false;
+            });
+        });
+
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 3000);
+        }
+    </script>
+</body>
+</html>
