@@ -1071,6 +1071,21 @@
 
     <div class="toast" id="toast"></div>
 
+    <!-- OneSignal Push Notifications -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "c571a489-adb8-49ec-9fa8-293ff000166b",
+          safari_web_id: "web.onesignal.auto.47c70ae7-2660-4f5d-88d3-857f7dfd7254",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    </script>
+
     <!-- Buy Me a Coffee -->
     <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rodolfopardo" data-color="#FF5F5F" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
 
