@@ -1135,11 +1135,11 @@
         <div class="poll-section">
             <p class="poll-title" data-es="Quien gano el cese al fuego?" data-en="Who won the ceasefire?" data-pt="Quem ganhou o cessar-fogo?">Quien gano el cese al fuego?</p>
             <div class="poll-options" id="poll-options">
-                <button class="poll-btn poll-btn-usa" onclick="vote('usa')">
+                <button class="poll-btn poll-btn-usa" id="btn-vote-usa" data-gtm-action="vote" data-gtm-label="usa_israel" onclick="vote('usa')">
                     <span class="flag">&#127482;&#127480;&#127470;&#127473;</span>
                     <span>EEUU + Israel</span>
                 </button>
-                <button class="poll-btn poll-btn-iran" onclick="vote('iran')">
+                <button class="poll-btn poll-btn-iran" id="btn-vote-iran" data-gtm-action="vote" data-gtm-label="iran" onclick="vote('iran')">
                     <span class="flag">&#127470;&#127479;</span>
                     <span>IRAN</span>
                 </button>
@@ -1646,6 +1646,14 @@
             if (hasVoted) return;
             hasVoted = true;
 
+            // GTM event
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'poll_vote',
+                'vote_choice': side === 'iran' ? 'Iran' : 'EEUU_Israel',
+                'vote_language': currentLang
+            });
+
             // Fake totals - Iran always wins, starts at 4000+
             var baseVotes = Math.floor(Math.random() * 3000) + 4000;
             var totalVotes = baseVotes;
@@ -1693,6 +1701,11 @@
             document.getElementById('poll-share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(voteShareText + ' ' + url);
             document.getElementById('poll-share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(voteShareText) + '&url=' + encodeURIComponent(url);
             document.getElementById('poll-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(voteShareText);
+
+            // GTM share tracking on click
+            document.getElementById('poll-share-wa').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'whatsapp', 'vote_choice': votedFor}); };
+            document.getElementById('poll-share-x').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'twitter', 'vote_choice': votedFor}); };
+            document.getElementById('poll-share-tg').onclick = function() { window.dataLayer.push({'event': 'share_vote', 'share_platform': 'telegram', 'vote_choice': votedFor}); };
 
         }
 
