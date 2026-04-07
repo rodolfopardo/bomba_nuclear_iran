@@ -660,6 +660,32 @@
             margin-top: 25px;
         }
 
+        /* Coffee button */
+        .coffee-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn-coffee {
+            font-family: 'Orbitron', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #ff813f, #ffdd00);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .btn-coffee:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 221, 0, 0.5);
+        }
+
         /* Language toggle */
         .lang-toggle {
             position: fixed;
@@ -1020,9 +1046,14 @@
             </div>
         </div>
 
+        <!-- Coffee -->
+        <div class="coffee-section">
+            <a href="https://buymeacoffee.com/rodolfopardo" target="_blank" rel="noopener noreferrer" class="btn-coffee" data-es="&#9749; Si sobrevivimos, merezco un cafecito" data-en="&#9749; If we survive, I deserve a coffee">&#9749; Si sobrevivimos, merezco un cafecito</a>
+        </div>
+
         <div class="footer">
-            <p>Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
-            <p style="margin-top:5px">La humanidad fue bonita mientras duro</p>
+            <p data-es="Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026" data-en="Made with &#10084;&#65039; and a lot of fear &mdash; 2026">Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
+            <p style="margin-top:5px" data-es="La humanidad fue bonita mientras duro" data-en="Humanity was beautiful while it lasted">La humanidad fue bonita mientras duro</p>
         </div>
     </div>
 
@@ -1032,6 +1063,9 @@
     </div>
 
     <div class="toast" id="toast"></div>
+
+    <!-- Buy Me a Coffee -->
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rodolfopardo" data-color="#FF5F5F" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
