@@ -1635,12 +1635,12 @@
             hasVoted = true;
 
             // GA4 event
-            if (typeof gtag === 'function') {
+            try {
                 gtag('event', 'poll_vote', {
                     'vote_choice': side === 'iran' ? 'Iran' : 'EEUU_Israel',
                     'vote_language': currentLang
                 });
-            }
+            } catch(e) { console.log('GA4 error:', e); }
 
             // Fake totals - Iran always wins, starts at 4000+
             var baseVotes = Math.floor(Math.random() * 3000) + 4000;
@@ -1691,9 +1691,9 @@
             document.getElementById('poll-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(voteShareText);
 
             // GA4 share tracking on click
-            document.getElementById('poll-share-wa').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'whatsapp', 'vote_choice': votedFor}); };
-            document.getElementById('poll-share-x').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'twitter', 'vote_choice': votedFor}); };
-            document.getElementById('poll-share-tg').onclick = function() { if (typeof gtag === 'function') gtag('event', 'share_vote', {'share_platform': 'telegram', 'vote_choice': votedFor}); };
+            document.getElementById('poll-share-wa').onclick = function() { try { gtag('event', 'share_vote', {'share_platform': 'whatsapp', 'vote_choice': votedFor}); } catch(e) {} };
+            document.getElementById('poll-share-x').onclick = function() { try { gtag('event', 'share_vote', {'share_platform': 'twitter', 'vote_choice': votedFor}); } catch(e) {} };
+            document.getElementById('poll-share-tg').onclick = function() { try { gtag('event', 'share_vote', {'share_platform': 'telegram', 'vote_choice': votedFor}); } catch(e) {} };
 
         }
 
