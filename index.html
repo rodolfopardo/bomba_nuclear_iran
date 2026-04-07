@@ -8,21 +8,23 @@
     <meta name="keywords" content="iran, bomba nuclear, countdown, cuenta regresiva, satira, geopolitica, EEUU, medio oriente">
     <meta name="author" content="La Humanidad (mientras dure)">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://rodolfopardo.github.io/bomba_nuclear_iran/">
+    <link rel="canonical" href="https://bomba-nuclear-iran-trump-countdown.vercel.app/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Bomba Atomica en Iran - Countdown de Trump">
-    <meta property="og:description" content="La cuenta regresiva ha comenzado. Suscribete para recibir la notificacion del bombazo. Satira en tiempos de apocalipsis.">
-    <meta property="og:url" content="https://rodolfopardo.github.io/bomba_nuclear_iran/">
+    <meta property="og:description" content="La cuenta regresiva ha comenzado. Cuanto falta para el BOOM? Ultimatum 8PM ET - 7 Abril 2026">
+    <meta property="og:url" content="https://bomba-nuclear-iran-trump-countdown.vercel.app/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1590845947698-dc1d35bde60a?w=1200&h=630&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Bomba Countdown">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bomba Atomica en Iran - Countdown de Trump">
-    <meta name="twitter:description" content="La cuenta regresiva ha comenzado. Porque si van a destruir todo, al menos merecemos un countdown decente.">
+    <meta name="twitter:description" content="La cuenta regresiva ha comenzado. Cuanto falta para el BOOM? Ultimatum 8PM ET - 7 Abril 2026">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1590845947698-dc1d35bde60a?w=1200&h=630&fit=crop">
 
     <!-- Favicon -->
@@ -656,6 +658,51 @@
             margin-top: 25px;
         }
 
+        /* Responsive mobile */
+        @media (max-width: 480px) {
+            .countdown {
+                gap: 8px;
+            }
+            .time-block {
+                min-width: 80px;
+                padding: 12px 8px;
+            }
+            .time-number {
+                font-size: 36px;
+            }
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            .subscribe-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .subscribe-form input {
+                width: 100%;
+                max-width: 280px;
+            }
+            .btn-subscribe {
+                width: 100%;
+                max-width: 280px;
+            }
+            .timezone-info .tz-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .splash-btn {
+                padding: 15px 25px;
+                font-size: 10px;
+            }
+            .container {
+                padding: 15px 10px;
+            }
+        }
+
         /* JSON-LD structured data is in the script below */
     </style>
 </head>
@@ -943,8 +990,8 @@
         }, 3000);
 
         // Share functionality
-        const pageUrl = window.location.href;
-        const shareText = '\u{1F4A3} La cuenta regresiva ha comenzado... Cuanto falta para el BOOM? \u{1F440}';
+        var pageUrl = 'https://bomba-nuclear-iran-trump-countdown.vercel.app/';
+        var shareText = 'BOMBA ATOMICA EN IRAN - Countdown de Trump en VIVO. Cuanto falta para el BOOM?';
 
         document.getElementById('share-x').href =
             'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
