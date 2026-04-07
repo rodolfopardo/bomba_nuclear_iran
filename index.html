@@ -1342,6 +1342,20 @@
             </div>
         </div>
 
+        <!-- Crypto donations -->
+        <div class="subscribe-section" style="margin-top:30px;max-width:500px;margin-left:auto;margin-right:auto">
+            <p class="section-title" data-es="&#9889; Apoya este proyecto con Bitcoin" data-en="&#9889; Support this project with Bitcoin" data-pt="&#9889; Apoie este projeto com Bitcoin">&#9889; Apoya este proyecto con Bitcoin</p>
+            <p style="font-size:11px;color:#ff6666;margin-bottom:15px" data-es="Si vamos a morir, al menos que mi wallet tenga algo" data-en="If we're gonna die, at least let my wallet have something" data-pt="Se vamos morrer, pelo menos que minha carteira tenha algo">Si vamos a morir, al menos que mi wallet tenga algo</p>
+            <div id="btc-qr" style="display:none;margin:15px auto;text-align:center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw&bgcolor=0a0a0a&color=ff0000" alt="Bitcoin QR" style="border-radius:8px;border:2px solid #ff0000">
+            </div>
+            <p style="font-size:9px;color:#aa4444;word-break:break-all;background:rgba(255,0,0,0.05);padding:10px;border-radius:5px;font-family:monospace;display:none" id="btc-address">bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw</p>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+                <button class="btn-subscribe" style="background:transparent;color:#ff9900;border:2px solid #ff9900;font-size:11px" onclick="document.getElementById('btc-qr').style.display='block';document.getElementById('btc-address').style.display='block';this.textContent='&#9989;'" data-es="&#8383; Mostrar QR + Wallet" data-en="&#8383; Show QR + Wallet" data-pt="&#8383; Mostrar QR + Carteira">&#8383; Mostrar QR + Wallet</button>
+                <button class="btn-subscribe" style="background:transparent;color:#ff9900;border:2px solid #ff9900;font-size:11px" onclick="navigator.clipboard.writeText('bc1qm7y3dp9eshr85p9sjqyt4l6ql0agkpejj2wvyjr5vu54lxryffwslkkxvw');showToast('BTC address copied!')">&#128203; Copiar</button>
+            </div>
+        </div>
+
         <div class="footer">
             <p data-es="Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026" data-en="Made with &#10084;&#65039; and a lot of fear &mdash; 2026" data-pt="Feito com &#10084;&#65039; e muito medo &mdash; 2026">Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
             <p style="margin-top:5px" data-es="La humanidad fue bonita mientras duro" data-en="Humanity was beautiful while it lasted" data-pt="A humanidade foi bonita enquanto durou">La humanidad fue bonita mientras duro</p>
