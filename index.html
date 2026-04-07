@@ -32,6 +32,14 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💣</text></svg>">
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N59TN8PH');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V98SEC0JEL"></script>
     <script>
@@ -1074,16 +1082,9 @@
     </style>
 </head>
 <body>
-    <!-- Splash Screen -->
-    <div class="splash" id="splash" onclick="enterSite()">
-        <div class="splash-content">
-            <div class="splash-bomb">💣</div>
-            <h2 class="splash-title" data-es="ALERTA MUNDIAL" data-en="GLOBAL ALERT" data-pt="ALERTA MUNDIAL">ALERTA MUNDIAL</h2>
-            <p class="splash-sub" data-es="Ultimatum de Trump a Iran - Countdown en vivo" data-en="Trump's Ultimatum to Iran - Live Countdown" data-pt="Ultimato de Trump ao Ira - Contagem regressiva ao vivo">Ultimatum de Trump a Iran - Countdown en vivo</p>
-            <button class="splash-btn" data-es="ENTRAR SI TE ANIMAS" data-en="ENTER IF YOU DARE" data-pt="ENTRAR SE TIVER CORAGEM">ENTRAR SI TE ANIMAS</button>
-            <p class="splash-hint" data-es="* Subi el volumen para la experiencia completa 🔊" data-en="* Turn up the volume for the full experience 🔊" data-pt="* Aumente o volume para a experiencia completa 🔊">* Subi el volumen para la experiencia completa 🔊</p>
-        </div>
-    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N59TN8PH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Language toggle -->
     <div class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="English">&#127468;&#127463;</div><!-- ES->show UK flag for EN -->
@@ -1093,7 +1094,6 @@
     <div class="warning-bar-bottom"></div>
 
     <div class="container">
-        <div class="icon-bomb">💣</div>
         <h1 class="title">ALTO EL FUEGO</h1>
         <p class="subtitle">Cuanto dura la paz? Countdown de las 2 semanas</p>
 
@@ -1130,45 +1130,6 @@
 
         <p class="status-text" id="status" style="color:#22c55e">&#9203; ALTO EL FUEGO ACTIVO - SE ACABA EN 14 DIAS &#9203;</p>
 
-        <div class="timezone-info">
-            <p class="tz-title" data-es="&#127760; Hora del impacto segun tu ubicacion" data-en="&#127760; Impact time based on your location" data-pt="&#127760; Hora do impacto conforme sua localizacao">&#127760; Hora del impacto segun tu ubicacion</p>
-            <p class="tz-local" data-es="&#128205; En tu zona: " data-en="&#128205; Your timezone: " data-pt="&#128205; Na sua zona: ">&#128205; En tu zona: <span id="tz-local-time"></span></p>
-            <p class="tz-name" id="tz-local-name"></p>
-            <div class="tz-grid">
-                <div class="tz-item highlight">
-                    <span class="tz-city">WASHINGTON DC</span>
-                    <span class="tz-time">8:00 PM</span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">TEHRAN</span>
-                    <span class="tz-time" id="tz-tehran"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">BUENOS AIRES</span>
-                    <span class="tz-time" id="tz-buenosaires"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">MADRID</span>
-                    <span class="tz-time" id="tz-madrid"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">MEXICO DF</span>
-                    <span class="tz-time" id="tz-mexico"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">LONDRES</span>
-                    <span class="tz-time" id="tz-london"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">TOKYO</span>
-                    <span class="tz-time" id="tz-tokyo"></span>
-                </div>
-                <div class="tz-item">
-                    <span class="tz-city">BOGOTA</span>
-                    <span class="tz-time" id="tz-bogota"></span>
-                </div>
-            </div>
-        </div>
 
         <!-- Poll (right after timezone) -->
         <div class="poll-section">
@@ -1203,6 +1164,14 @@
                     </div>
                 </div>
                 <p class="poll-total" id="poll-total"></p>
+                <div id="poll-share" style="display:none;margin-top:15px">
+                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px" data-es="Compartí tu voto!" data-en="Share your vote!" data-pt="Compartilhe seu voto!">Compartí tu voto!</p>
+                    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+                        <a class="btn btn-whatsapp" id="poll-share-wa" href="#" target="_blank" rel="noopener noreferrer" style="padding:8px 16px;font-size:10px">WhatsApp</a>
+                        <a class="btn btn-x" id="poll-share-x" href="#" target="_blank" rel="noopener noreferrer" style="padding:8px 16px;font-size:10px">X / Twitter</a>
+                        <a class="btn btn-telegram" id="poll-share-tg" href="#" target="_blank" rel="noopener noreferrer" style="padding:8px 16px;font-size:10px">Telegram</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1772,6 +1741,20 @@
 
             var voteToast = { es: 'Voto registrado!', en: 'Vote registered!', pt: 'Voto registrado!' };
             showToast(voteToast[currentLang] || voteToast.es);
+
+            // Show share buttons with vote result
+            document.getElementById('poll-share').style.display = 'block';
+            var votedFor = side === 'iran' ? 'IRAN' : 'EEUU + Israel';
+            var shareVote = {
+                es: 'Con el cese al fuego, para mi gano ' + votedFor + '. Y vos?',
+                en: 'With the ceasefire, I think ' + votedFor + ' won. What about you?',
+                pt: 'Com o cessar-fogo, pra mim ganhou ' + votedFor + '. E voce?'
+            };
+            var voteShareText = shareVote[currentLang] || shareVote.es;
+            var url = pageUrl;
+            document.getElementById('poll-share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(voteShareText + ' ' + url);
+            document.getElementById('poll-share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(voteShareText) + '&url=' + encodeURIComponent(url);
+            document.getElementById('poll-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(voteShareText);
 
             // Keep incrementing votes
             setInterval(function() {
