@@ -810,6 +810,171 @@
             margin-top: 12px;
         }
 
+        /* Threat level */
+        .threat-section {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .threat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .threat-item {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .threat-item.critical {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+        }
+
+        .threat-item.elevated {
+            background: rgba(255, 153, 0, 0.1);
+            border: 1px solid rgba(255, 153, 0, 0.3);
+        }
+
+        .threat-item .threat-label {
+            font-size: 9px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .threat-item.critical .threat-label { color: #ff4444; }
+        .threat-item.elevated .threat-label { color: #ff9900; }
+
+        .threat-item .threat-name {
+            font-size: 12px;
+            color: #ff6666;
+            font-weight: 700;
+        }
+
+        .threat-item .threat-badge {
+            font-size: 10px;
+            font-weight: 900;
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .threat-item.critical .threat-badge {
+            background: #ff0000;
+            color: #000;
+        }
+
+        .threat-item.elevated .threat-badge {
+            background: #ff9900;
+            color: #000;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+            font-size: 11px;
+        }
+
+        .timeline-item:last-child { border-bottom: none; }
+
+        .timeline-date {
+            color: #ff4444;
+            font-weight: 700;
+            min-width: 55px;
+            font-size: 10px;
+        }
+
+        .timeline-text {
+            color: #ff6666;
+            flex: 1;
+        }
+
+        .timeline-impact {
+            color: #ff0000;
+            font-weight: 900;
+            font-size: 10px;
+            min-width: 30px;
+            text-align: right;
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            text-align: left;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
+            padding: 12px 0;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-q {
+            color: #ff4444;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q::after {
+            content: '+';
+            font-size: 18px;
+            color: #ff0000;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-q::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            color: #aa6666;
+            font-size: 11px;
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            padding: 0;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+
         /* Responsive mobile */
         @media (max-width: 480px) {
             .countdown {
@@ -961,6 +1126,95 @@
         </div>
 
         <!-- Poll -->
+        <!-- Threat Level Dashboard -->
+        <div class="threat-section">
+            <p class="section-title" data-es="&#9762; Nivel de amenaza actual" data-en="&#9762; Current Threat Level">&#9762; Current Threat Level</p>
+            <div class="threat-grid">
+                <div class="threat-item critical">
+                    <div class="threat-label">ARMED CONFLICT</div>
+                    <div class="threat-name">US-Iran War</div>
+                    <div class="threat-badge">CRITICAL</div>
+                </div>
+                <div class="threat-item critical">
+                    <div class="threat-label">NUCLEAR THREAT</div>
+                    <div class="threat-name">Iran Program</div>
+                    <div class="threat-badge">CRITICAL</div>
+                </div>
+                <div class="threat-item elevated">
+                    <div class="threat-label">DIPLOMACY</div>
+                    <div class="threat-name">Ceasefire Talks</div>
+                    <div class="threat-badge">ELEVATED</div>
+                </div>
+                <div class="threat-item elevated">
+                    <div class="threat-label">ECONOMIC</div>
+                    <div class="threat-name">Strait of Hormuz</div>
+                    <div class="threat-badge">ELEVATED</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crisis Timeline -->
+        <div class="timeline-section">
+            <p class="section-title" data-es="&#128197; Cronologia de la crisis" data-en="&#128197; Crisis Timeline">&#128197; Crisis Timeline</p>
+            <div class="timeline-item">
+                <span class="timeline-date">APR 7</span>
+                <span class="timeline-text">Trump sets 8PM ET deadline: "The entire country can be finished in one night"</span>
+                <span class="timeline-impact" style="color:#ff0000">TODAY</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">APR 6</span>
+                <span class="timeline-text">Iran rejects ceasefire proposal. Trump prepares massive offensive on Hormuz</span>
+                <span class="timeline-impact">&#9888;</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">APR 5</span>
+                <span class="timeline-text">F-15 shot down by Iran. Second crew member rescued alive</span>
+                <span class="timeline-impact">&#9888;</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">APR 4</span>
+                <span class="timeline-text">Egypt, Pakistan, Turkey present 45-day ceasefire draft</span>
+                <span class="timeline-impact">&#128313;</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">APR 1</span>
+                <span class="timeline-text">Trump justifies war: "They wanted to rebuild their nuclear program elsewhere"</span>
+                <span class="timeline-impact">&#9888;</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">MAR 1</span>
+                <span class="timeline-text">Iran closes Strait of Hormuz. Oil prices spike globally</span>
+                <span class="timeline-impact">&#128308;</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">FEB 28</span>
+                <span class="timeline-text">Operation Epic Fury: US strikes across 24 Iranian provinces. Nuclear facilities hit</span>
+                <span class="timeline-impact">&#128308;</span>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <p class="section-title" data-es="&#10067; Preguntas frecuentes" data-en="&#10067; Frequently Asked Questions">&#10067; Frequently Asked Questions</p>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What is Trump's deadline for Iran?</div>
+                <div class="faq-a">President Trump set an ultimatum for Iran at 8:00 PM Eastern Time on Tuesday, April 7, 2026. If Iran does not agree to reopen the Strait of Hormuz, surrender control of its nuclear program, end ballistic missile production, and cut funding to Hezbollah and the Houthis, Trump has threatened to order a "historic offensive" against Iran.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Are we close to World War 3?</div>
+                <div class="faq-a">The current US-Iran conflict represents one of the most dangerous military escalations since the Cold War. The US has conducted strikes across 24 Iranian provinces, Iran has closed the Strait of Hormuz affecting global oil supply, and diplomatic channels have largely collapsed. Multiple countries including Egypt, Pakistan, and Turkey are attempting mediation.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What happens when the countdown reaches zero?</div>
+                <div class="faq-a">When the countdown reaches Trump's 8PM ET deadline, the US may launch a major military offensive against Iranian infrastructure including bridges and power plants. Trump stated: "The entire country can be finished in one night." Iran has warned of a "much more devastating and broad" response if civilian targets are hit.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Why did the US attack Iran?</div>
+                <div class="faq-a">The conflict escalated after the US accused Iran of attempting to rebuild its nuclear program. Operation Epic Fury launched on February 28, 2026, with strikes across 24 provinces including nuclear facilities. Iran retaliated by closing the Strait of Hormuz, a critical global oil shipping route.</div>
+            </div>
+        </div>
+
+        <!-- Poll -->
         <div class="poll-section">
             <p class="poll-title" data-es="De que lado estas?" data-en="Whose side are you on?">De que lado estas?</p>
             <div class="poll-options" id="poll-options">
@@ -1077,20 +1331,70 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
+    [{
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Countdown to Deadline: Trump Iran Ultimatum Live Timer",
-        "description": "Live countdown to Trump's 8PM ET deadline for Iran. Trump warns of consequences if Iran keeps Strait of Hormuz closed. Real-time timer with timezone converter and USA vs Iran poll.",
+        "description": "Live countdown to Trump's 8PM ET deadline for Iran. Trump warns of consequences if Iran keeps Strait of Hormuz closed.",
         "url": "https://bomba-nuclear-iran-trump-countdown.vercel.app/",
         "inLanguage": "en",
         "image": "https://bomba-nuclear-iran-trump-countdown.vercel.app/og.png",
         "datePublished": "2026-04-07",
-        "author": {
-            "@type": "Person",
-            "name": "Rodolfo Pardo"
-        }
-    }
+        "dateModified": "2026-04-07"
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Trump's deadline for Iran?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "President Trump set an ultimatum for Iran at 8:00 PM Eastern Time on Tuesday, April 7, 2026. If Iran does not agree to reopen the Strait of Hormuz, surrender control of its nuclear program, end ballistic missile production, and cut funding to Hezbollah and the Houthis, Trump has threatened to order a historic offensive against Iran."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are we close to World War 3?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The current US-Iran conflict represents one of the most dangerous military escalations since the Cold War. The US has conducted strikes across 24 Iranian provinces, Iran has closed the Strait of Hormuz affecting global oil supply, and diplomatic channels have largely collapsed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens when the countdown reaches zero?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When the countdown reaches Trump's 8PM ET deadline, the US may launch a major military offensive against Iranian infrastructure including bridges and power plants. Trump stated: The entire country can be finished in one night. Iran has warned of a much more devastating and broad response."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why did the US attack Iran?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The conflict escalated after the US accused Iran of attempting to rebuild its nuclear program. Operation Epic Fury launched on February 28, 2026, with strikes across 24 provinces including nuclear facilities. Iran retaliated by closing the Strait of Hormuz."
+                }
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "LiveBlogPosting",
+        "headline": "Trump Iran Countdown - Live Updates",
+        "coverageStartTime": "2026-04-01T00:00:00-04:00",
+        "coverageEndTime": "2026-04-08T00:00:00-04:00",
+        "url": "https://bomba-nuclear-iran-trump-countdown.vercel.app/",
+        "liveBlogUpdate": [
+            {"@type": "BlogPosting", "headline": "Trump sets 8PM ET deadline for Iran", "datePublished": "2026-04-07"},
+            {"@type": "BlogPosting", "headline": "Iran rejects ceasefire. Trump prepares Hormuz offensive", "datePublished": "2026-04-06"},
+            {"@type": "BlogPosting", "headline": "F-15 shot down by Iran, crew rescued", "datePublished": "2026-04-05"},
+            {"@type": "BlogPosting", "headline": "Egypt, Pakistan, Turkey present 45-day ceasefire draft", "datePublished": "2026-04-04"},
+            {"@type": "BlogPosting", "headline": "Trump justifies war over nuclear program", "datePublished": "2026-04-01"}
+        ]
+    }]
     </script>
 
     <script>
