@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bomba-nuclear-iran-trump-countdown.vercel.app/sitemap.xml
