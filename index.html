@@ -1035,15 +1035,15 @@
     <div class="splash" id="splash" onclick="enterSite()">
         <div class="splash-content">
             <div class="splash-bomb">💣</div>
-            <h2 class="splash-title">ALERTA MUNDIAL</h2>
-            <p class="splash-sub">Ultimatum de Trump a Iran - Countdown en vivo</p>
-            <button class="splash-btn">ENTRAR SI TE ANIMAS</button>
-            <p class="splash-hint">* Subi el volumen para la experiencia completa 🔊</p>
+            <h2 class="splash-title" data-es="ALERTA MUNDIAL" data-en="GLOBAL ALERT" data-pt="ALERTA MUNDIAL">ALERTA MUNDIAL</h2>
+            <p class="splash-sub" data-es="Ultimatum de Trump a Iran - Countdown en vivo" data-en="Trump's Ultimatum to Iran - Live Countdown" data-pt="Ultimato de Trump ao Ira - Contagem regressiva ao vivo">Ultimatum de Trump a Iran - Countdown en vivo</p>
+            <button class="splash-btn" data-es="ENTRAR SI TE ANIMAS" data-en="ENTER IF YOU DARE" data-pt="ENTRAR SE TIVER CORAGEM">ENTRAR SI TE ANIMAS</button>
+            <p class="splash-hint" data-es="* Subi el volumen para la experiencia completa 🔊" data-en="* Turn up the volume for the full experience 🔊" data-pt="* Aumente o volume para a experiencia completa 🔊">* Subi el volumen para la experiencia completa 🔊</p>
         </div>
     </div>
 
     <!-- Language toggle -->
-    <div class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="English">&#127468;&#127463;</div>
+    <div class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="English">&#127468;&#127463;</div><!-- ES->show UK flag for EN -->
 
     <div class="bg-image"></div>
     <div class="warning-bar"></div>
@@ -1074,8 +1074,8 @@
         <p class="status-text" id="status">&#9888; SISTEMA ARMADO - DETONACION EN PROGRESO &#9888;</p>
 
         <div class="timezone-info">
-            <p class="tz-title">&#127760; Hora del impacto segun tu ubicacion</p>
-            <p class="tz-local">&#128205; En tu zona: <span id="tz-local-time"></span></p>
+            <p class="tz-title" data-es="&#127760; Hora del impacto segun tu ubicacion" data-en="&#127760; Impact time based on your location" data-pt="&#127760; Hora do impacto conforme sua localizacao">&#127760; Hora del impacto segun tu ubicacion</p>
+            <p class="tz-local" data-es="&#128205; En tu zona: " data-en="&#128205; Your timezone: " data-pt="&#128205; Na sua zona: ">&#128205; En tu zona: <span id="tz-local-time"></span></p>
             <p class="tz-name" id="tz-local-name"></p>
             <div class="tz-grid">
                 <div class="tz-item highlight">
@@ -1115,7 +1115,7 @@
 
         <!-- Poll (right after timezone) -->
         <div class="poll-section">
-            <p class="poll-title" data-es="De que lado estas?" data-en="Whose side are you on?">De que lado estas?</p>
+            <p class="poll-title" data-es="De que lado estas?" data-en="Whose side are you on?" data-pt="De que lado voce esta?">De que lado estas?</p>
             <div class="poll-options" id="poll-options">
                 <button class="poll-btn poll-btn-usa" onclick="vote('usa')">
                     <span class="flag">&#127482;&#127480;</span>
@@ -1151,30 +1151,30 @@
 
         <!-- Subscribe section (right after poll) -->
         <div class="subscribe-section">
-            <p class="section-title" data-es="&#128276; No te pierdas el momento" data-en="&#128276; Don't miss the moment">&#128276; No te pierdas el momento</p>
-            <p data-es="Elegí como queres enterarte cuando todo explote:" data-en="Choose how you want to know when it all blows up:">Elegí como queres enterarte cuando todo explote:</p>
+            <p class="section-title" data-es="&#128276; No te pierdas el momento" data-en="&#128276; Don't miss the moment" data-pt="&#128276; Nao perca o momento">&#128276; No te pierdas el momento</p>
+            <p data-es="Elegi como queres enterarte cuando todo explote:" data-en="Choose how you want to know when it all blows up:" data-pt="Escolha como quer saber quando tudo explodir:">Elegi como queres enterarte cuando todo explote:</p>
             <div style="display:flex;flex-direction:column;gap:15px;margin-top:15px;align-items:center">
                 <div style="width:100%;max-width:400px">
-                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#9993; Por email:" data-en="&#9993; By email:">&#9993; Por email:</p>
+                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#9993; Por email:" data-en="&#9993; By email:" data-pt="&#9993; Por email:">&#9993; Por email:</p>
                     <div class="subscribe-form">
                         <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Email para notificaciones">
                         <button class="btn-subscribe" id="subscribe-btn">OK</button>
                     </div>
                 </div>
                 <div style="width:100%;max-width:400px">
-                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#128276; Notificacion push (instantanea):" data-en="&#128276; Push notification (instant):">&#128276; Notificacion push (instantanea):</p>
-                    <button class="btn-subscribe" id="push-btn" style="width:100%;background:transparent;color:#ff0000;border:2px solid #ff0000" onclick="requestPush()" data-es="ACTIVAR ALERTAS PUSH" data-en="ENABLE PUSH ALERTS">ACTIVAR ALERTAS PUSH</button>
+                    <p style="font-size:10px;color:#ff6666;margin-bottom:8px;text-align:left" data-es="&#128276; Notificacion push (instantanea):" data-en="&#128276; Push notification (instant):" data-pt="&#128276; Notificacao push (instantanea):">&#128276; Notificacion push (instantanea):</p>
+                    <button class="btn-subscribe" id="push-btn" style="width:100%;background:transparent;color:#ff0000;border:2px solid #ff0000" onclick="requestPush()" data-es="ACTIVAR ALERTAS PUSH" data-en="ENABLE PUSH ALERTS" data-pt="ATIVAR ALERTAS PUSH">ACTIVAR ALERTAS PUSH</button>
                 </div>
             </div>
             <div class="counter-live" style="margin-top:15px">
                 <span class="dot"></span>
-                <span id="live-count">4,827</span> <span data-es="personas esperando el bombazo en vivo" data-en="people waiting for the boom live">personas esperando el bombazo en vivo</span>
+                <span id="live-count">4,827</span> <span data-es="personas esperando el bombazo en vivo" data-en="people waiting for the boom live" data-pt="pessoas esperando a explosao ao vivo">personas esperando el bombazo en vivo</span>
             </div>
         </div>
 
         <!-- Share buttons -->
         <div class="buttons-section">
-            <p class="section-title" data-es="&#128227; Avisale a tu amigo!" data-en="&#128227; Tell your friend!">&#128227; Avisale a tu amigo!</p>
+            <p class="section-title" data-es="&#128227; Avisale a tu amigo!" data-en="&#128227; Tell your friend!" data-pt="&#128227; Avise seu amigo!">&#128227; Avisale a tu amigo!</p>
             <div class="share-buttons">
                 <a class="btn btn-x" id="share-x" href="#" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1196,109 +1196,109 @@
         </div>
 
         <!-- Content below the fold -->
-        <p class="disclaimer">
+        <p class="disclaimer" data-es="* Esto es satira. No apoyamos la violencia. Pero si vas a destruir un pais entero, al menos merecemos un countdown decente, no? La realidad supera la ficcion. Todos los dias." data-en="* This is satire. We don't support violence. But if you're going to destroy an entire country, at least we deserve a decent countdown, right? Reality surpasses fiction. Every day." data-pt="* Isto e satira. Nao apoiamos a violencia. Mas se voce vai destruir um pais inteiro, pelo menos merecemos uma contagem regressiva decente, nao? A realidade supera a ficcao. Todos os dias.">
             * Esto es satira. No apoyamos la violencia. Pero si vas a destruir un pais entero,
             al menos merecemos un countdown decente, no?
             La realidad supera la ficcion. Todos los dias.
         </p>
 
         <div class="disclaimer" style="text-align:left;max-width:600px">
-            <h2 style="color:#ff4444;font-size:14px;margin-bottom:10px;font-family:'Orbitron',monospace">Countdown to Deadline: Trump vs Iran</h2>
-            <p>Trump warns of consequences if Iran keeps the Strait of Hormuz closed. The deadline is set for 8PM ET on Tuesday, April 7, 2026. If Tehran does not accept to reopen the strait, surrender control of its nuclear program, end ballistic missile production, and cancel financial support for Hezbollah and the Houthis, Trump will order a historic offensive against Iran.</p>
-            <p style="margin-top:8px">"The entire country can be finished in one night and that night could be tomorrow." — Donald Trump, April 6, 2026. This live countdown tracker shows in real-time how long until the deadline.</p>
+            <h2 style="color:#ff4444;font-size:14px;margin-bottom:10px;font-family:'Orbitron',monospace" data-es="Cuenta regresiva: Trump vs Iran" data-en="Countdown to Deadline: Trump vs Iran" data-pt="Contagem regressiva: Trump vs Ira">Cuenta regresiva: Trump vs Iran</h2>
+            <p data-es="Trump advierte de consecuencias si Iran mantiene cerrado el Estrecho de Ormuz. El deadline esta fijado para las 8PM ET del martes 7 de abril de 2026. Si Teheran no acepta reabrir el estrecho, entregar el control de su programa nuclear, terminar la produccion de misiles balisticos y cancelar el apoyo financiero a Hezbollah y los Houthis, Trump ordenara una ofensiva historica contra Iran." data-en="Trump warns of consequences if Iran keeps the Strait of Hormuz closed. The deadline is set for 8PM ET on Tuesday, April 7, 2026. If Tehran does not accept to reopen the strait, surrender control of its nuclear program, end ballistic missile production, and cancel financial support for Hezbollah and the Houthis, Trump will order a historic offensive against Iran." data-pt="Trump alerta para consequencias se o Ira mantiver o Estreito de Ormuz fechado. O prazo esta definido para as 8PM ET de terca-feira, 7 de abril de 2026. Se Teera nao aceitar reabrir o estreito, entregar o controle de seu programa nuclear, encerrar a producao de misseis balisticos e cancelar o apoio financeiro ao Hezbollah e aos Houthis, Trump ordenara uma ofensiva historica contra o Ira.">Trump advierte de consecuencias si Iran mantiene cerrado el Estrecho de Ormuz. El deadline esta fijado para las 8PM ET del martes 7 de abril de 2026. Si Teheran no acepta reabrir el estrecho, entregar el control de su programa nuclear, terminar la produccion de misiles balisticos y cancelar el apoyo financiero a Hezbollah y los Houthis, Trump ordenara una ofensiva historica contra Iran.</p>
+            <p style="margin-top:8px" data-es="&quot;El pais entero puede acabarse en una noche y esa noche podria ser manana.&quot; — Donald Trump, 6 de abril de 2026. Este tracker en vivo muestra en tiempo real cuanto falta para el deadline." data-en="&quot;The entire country can be finished in one night and that night could be tomorrow.&quot; — Donald Trump, April 6, 2026. This live countdown tracker shows in real-time how long until the deadline." data-pt="&quot;O pais inteiro pode acabar em uma noite e essa noite pode ser amanha.&quot; — Donald Trump, 6 de abril de 2026. Este rastreador ao vivo mostra em tempo real quanto falta para o prazo.">"El pais entero puede acabarse en una noche y esa noche podria ser manana." — Donald Trump, 6 de abril de 2026. Este tracker en vivo muestra en tiempo real cuanto falta para el deadline.</p>
         </div>
 
         <!-- Threat Level Dashboard -->
         <div class="threat-section">
-            <p class="section-title" data-es="&#9762; Nivel de amenaza actual" data-en="&#9762; Current Threat Level">&#9762; Current Threat Level</p>
+            <p class="section-title" data-es="&#9762; Nivel de amenaza actual" data-en="&#9762; Current Threat Level" data-pt="&#9762; Nivel de ameaca atual">&#9762; Nivel de amenaza actual</p>
             <div class="threat-grid">
                 <div class="threat-item critical">
-                    <div class="threat-label">ARMED CONFLICT</div>
-                    <div class="threat-name">US-Iran War</div>
-                    <div class="threat-badge">CRITICAL</div>
+                    <div class="threat-label" data-es="CONFLICTO ARMADO" data-en="ARMED CONFLICT" data-pt="CONFLITO ARMADO">CONFLICTO ARMADO</div>
+                    <div class="threat-name" data-es="Guerra EEUU-Iran" data-en="US-Iran War" data-pt="Guerra EUA-Ira">Guerra EEUU-Iran</div>
+                    <div class="threat-badge" data-es="CRITICO" data-en="CRITICAL" data-pt="CRITICO">CRITICO</div>
                 </div>
                 <div class="threat-item critical">
-                    <div class="threat-label">NUCLEAR THREAT</div>
-                    <div class="threat-name">Iran Program</div>
-                    <div class="threat-badge">CRITICAL</div>
+                    <div class="threat-label" data-es="AMENAZA NUCLEAR" data-en="NUCLEAR THREAT" data-pt="AMEACA NUCLEAR">AMENAZA NUCLEAR</div>
+                    <div class="threat-name" data-es="Programa de Iran" data-en="Iran Program" data-pt="Programa do Ira">Programa de Iran</div>
+                    <div class="threat-badge" data-es="CRITICO" data-en="CRITICAL" data-pt="CRITICO">CRITICO</div>
                 </div>
                 <div class="threat-item elevated">
-                    <div class="threat-label">DIPLOMACY</div>
-                    <div class="threat-name">Ceasefire Talks</div>
-                    <div class="threat-badge">ELEVATED</div>
+                    <div class="threat-label" data-es="DIPLOMACIA" data-en="DIPLOMACY" data-pt="DIPLOMACIA">DIPLOMACIA</div>
+                    <div class="threat-name" data-es="Negociaciones de alto el fuego" data-en="Ceasefire Talks" data-pt="Negociacoes de cessar-fogo">Negociaciones de alto el fuego</div>
+                    <div class="threat-badge" data-es="ELEVADO" data-en="ELEVATED" data-pt="ELEVADO">ELEVADO</div>
                 </div>
                 <div class="threat-item elevated">
-                    <div class="threat-label">ECONOMIC</div>
-                    <div class="threat-name">Strait of Hormuz</div>
-                    <div class="threat-badge">ELEVATED</div>
+                    <div class="threat-label" data-es="ECONOMICO" data-en="ECONOMIC" data-pt="ECONOMICO">ECONOMICO</div>
+                    <div class="threat-name" data-es="Estrecho de Ormuz" data-en="Strait of Hormuz" data-pt="Estreito de Ormuz">Estrecho de Ormuz</div>
+                    <div class="threat-badge" data-es="ELEVADO" data-en="ELEVATED" data-pt="ELEVADO">ELEVADO</div>
                 </div>
             </div>
         </div>
 
         <!-- Crisis Timeline -->
         <div class="timeline-section">
-            <p class="section-title" data-es="&#128197; Cronologia de la crisis" data-en="&#128197; Crisis Timeline">&#128197; Crisis Timeline</p>
+            <p class="section-title" data-es="&#128197; Cronologia de la crisis" data-en="&#128197; Crisis Timeline" data-pt="&#128197; Cronologia da crise">&#128197; Cronologia de la crisis</p>
             <div class="timeline-item">
-                <span class="timeline-date">APR 7</span>
-                <span class="timeline-text">Trump sets 8PM ET deadline: "The entire country can be finished in one night"</span>
-                <span class="timeline-impact" style="color:#ff0000">TODAY</span>
+                <span class="timeline-date">ABR 7</span>
+                <span class="timeline-text" data-es="Trump pone deadline a las 8PM ET: &quot;El pais entero puede acabarse en una noche&quot;" data-en="Trump sets 8PM ET deadline: &quot;The entire country can be finished in one night&quot;" data-pt="Trump define prazo as 8PM ET: &quot;O pais inteiro pode acabar em uma noite&quot;">Trump pone deadline a las 8PM ET: "El pais entero puede acabarse en una noche"</span>
+                <span class="timeline-impact" style="color:#ff0000" data-es="HOY" data-en="TODAY" data-pt="HOJE">HOY</span>
             </div>
             <div class="timeline-item">
-                <span class="timeline-date">APR 6</span>
-                <span class="timeline-text">Iran rejects ceasefire proposal. Trump prepares massive offensive on Hormuz</span>
+                <span class="timeline-date">ABR 6</span>
+                <span class="timeline-text" data-es="Iran rechaza propuesta de alto el fuego. Trump prepara ofensiva masiva en Ormuz" data-en="Iran rejects ceasefire proposal. Trump prepares massive offensive on Hormuz" data-pt="Ira rejeita proposta de cessar-fogo. Trump prepara ofensiva massiva em Ormuz">Iran rechaza propuesta de alto el fuego. Trump prepara ofensiva masiva en Ormuz</span>
                 <span class="timeline-impact">&#9888;</span>
             </div>
             <div class="timeline-item">
-                <span class="timeline-date">APR 5</span>
-                <span class="timeline-text">F-15 shot down by Iran. Second crew member rescued alive</span>
+                <span class="timeline-date">ABR 5</span>
+                <span class="timeline-text" data-es="F-15 derribado por Iran. Segundo tripulante rescatado con vida" data-en="F-15 shot down by Iran. Second crew member rescued alive" data-pt="F-15 abatido pelo Ira. Segundo tripulante resgatado com vida">F-15 derribado por Iran. Segundo tripulante rescatado con vida</span>
                 <span class="timeline-impact">&#9888;</span>
             </div>
             <div class="timeline-item">
-                <span class="timeline-date">APR 4</span>
-                <span class="timeline-text">Egypt, Pakistan, Turkey present 45-day ceasefire draft</span>
+                <span class="timeline-date">ABR 4</span>
+                <span class="timeline-text" data-es="Egipto, Pakistan, Turquia presentan borrador de alto el fuego de 45 dias" data-en="Egypt, Pakistan, Turkey present 45-day ceasefire draft" data-pt="Egito, Paquistao, Turquia apresentam rascunho de cessar-fogo de 45 dias">Egipto, Pakistan, Turquia presentan borrador de alto el fuego de 45 dias</span>
                 <span class="timeline-impact">&#128313;</span>
             </div>
             <div class="timeline-item">
-                <span class="timeline-date">APR 1</span>
-                <span class="timeline-text">Trump justifies war: "They wanted to rebuild their nuclear program elsewhere"</span>
+                <span class="timeline-date">ABR 1</span>
+                <span class="timeline-text" data-es="Trump justifica la guerra: &quot;Querian reconstruir su programa nuclear en otro lado&quot;" data-en="Trump justifies war: &quot;They wanted to rebuild their nuclear program elsewhere&quot;" data-pt="Trump justifica a guerra: &quot;Queriam reconstruir seu programa nuclear em outro lugar&quot;">Trump justifica la guerra: "Querian reconstruir su programa nuclear en otro lado"</span>
                 <span class="timeline-impact">&#9888;</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-date">MAR 1</span>
-                <span class="timeline-text">Iran closes Strait of Hormuz. Oil prices spike globally</span>
+                <span class="timeline-text" data-es="Iran cierra el Estrecho de Ormuz. Precios del petroleo se disparan" data-en="Iran closes Strait of Hormuz. Oil prices spike globally" data-pt="Ira fecha o Estreito de Ormuz. Precos do petroleo disparam globalmente">Iran cierra el Estrecho de Ormuz. Precios del petroleo se disparan</span>
                 <span class="timeline-impact">&#128308;</span>
             </div>
             <div class="timeline-item">
                 <span class="timeline-date">FEB 28</span>
-                <span class="timeline-text">Operation Epic Fury: US strikes across 24 Iranian provinces. Nuclear facilities hit</span>
+                <span class="timeline-text" data-es="Operacion Epic Fury: EEUU ataca 24 provincias iranies. Instalaciones nucleares golpeadas" data-en="Operation Epic Fury: US strikes across 24 Iranian provinces. Nuclear facilities hit" data-pt="Operacao Epic Fury: EUA atacam 24 provincias iranianas. Instalacoes nucleares atingidas">Operacion Epic Fury: EEUU ataca 24 provincias iranies. Instalaciones nucleares golpeadas</span>
                 <span class="timeline-impact">&#128308;</span>
             </div>
         </div>
 
         <!-- FAQ -->
         <div class="faq-section">
-            <p class="section-title" data-es="&#10067; Preguntas frecuentes" data-en="&#10067; Frequently Asked Questions">&#10067; Frequently Asked Questions</p>
+            <p class="section-title" data-es="&#10067; Preguntas frecuentes" data-en="&#10067; Frequently Asked Questions" data-pt="&#10067; Perguntas frequentes">&#10067; Preguntas frecuentes</p>
             <div class="faq-item" onclick="this.classList.toggle('open')">
-                <div class="faq-q">What is Trump's deadline for Iran?</div>
-                <div class="faq-a">President Trump set an ultimatum for Iran at 8:00 PM Eastern Time on Tuesday, April 7, 2026. If Iran does not agree to reopen the Strait of Hormuz, surrender control of its nuclear program, end ballistic missile production, and cut funding to Hezbollah and the Houthis, Trump has threatened to order a "historic offensive" against Iran.</div>
+                <div class="faq-q" data-es="Cual es el deadline de Trump para Iran?" data-en="What is Trump's deadline for Iran?" data-pt="Qual e o prazo de Trump para o Ira?">Cual es el deadline de Trump para Iran?</div>
+                <div class="faq-a" data-es="El presidente Trump puso un ultimatum a Iran a las 8:00 PM hora del Este el martes 7 de abril de 2026. Si Iran no acepta reabrir el Estrecho de Ormuz, entregar el control de su programa nuclear, terminar la produccion de misiles balisticos y cortar el financiamiento a Hezbollah y los Houthis, Trump amenazo con ordenar una &quot;ofensiva historica&quot; contra Iran." data-en="President Trump set an ultimatum for Iran at 8:00 PM Eastern Time on Tuesday, April 7, 2026. If Iran does not agree to reopen the Strait of Hormuz, surrender control of its nuclear program, end ballistic missile production, and cut funding to Hezbollah and the Houthis, Trump has threatened to order a &quot;historic offensive&quot; against Iran." data-pt="O presidente Trump definiu um ultimato para o Ira as 8:00 PM hora do Leste na terca-feira, 7 de abril de 2026. Se o Ira nao concordar em reabrir o Estreito de Ormuz, entregar o controle de seu programa nuclear, encerrar a producao de misseis balisticos e cortar financiamento ao Hezbollah e aos Houthis, Trump ameacou ordenar uma &quot;ofensiva historica&quot; contra o Ira.">El presidente Trump puso un ultimatum a Iran a las 8:00 PM hora del Este el martes 7 de abril de 2026. Si Iran no acepta reabrir el Estrecho de Ormuz, entregar el control de su programa nuclear, terminar la produccion de misiles balisticos y cortar el financiamiento a Hezbollah y los Houthis, Trump amenazo con ordenar una "ofensiva historica" contra Iran.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
-                <div class="faq-q">Are we close to World War 3?</div>
-                <div class="faq-a">The current US-Iran conflict represents one of the most dangerous military escalations since the Cold War. The US has conducted strikes across 24 Iranian provinces, Iran has closed the Strait of Hormuz affecting global oil supply, and diplomatic channels have largely collapsed. Multiple countries including Egypt, Pakistan, and Turkey are attempting mediation.</div>
+                <div class="faq-q" data-es="Estamos cerca de la Tercera Guerra Mundial?" data-en="Are we close to World War 3?" data-pt="Estamos perto da Terceira Guerra Mundial?">Estamos cerca de la Tercera Guerra Mundial?</div>
+                <div class="faq-a" data-es="El conflicto actual entre EEUU e Iran representa una de las escaladas militares mas peligrosas desde la Guerra Fria. EEUU ha realizado ataques en 24 provincias iranies, Iran cerro el Estrecho de Ormuz afectando el suministro global de petroleo y los canales diplomaticos se han derrumbado. Varios paises incluyendo Egipto, Pakistan y Turquia intentan mediar." data-en="The current US-Iran conflict represents one of the most dangerous military escalations since the Cold War. The US has conducted strikes across 24 Iranian provinces, Iran has closed the Strait of Hormuz affecting global oil supply, and diplomatic channels have largely collapsed. Multiple countries including Egypt, Pakistan, and Turkey are attempting mediation." data-pt="O conflito atual entre EUA e Ira representa uma das escaladas militares mais perigosas desde a Guerra Fria. Os EUA realizaram ataques em 24 provincias iranianas, o Ira fechou o Estreito de Ormuz afetando o fornecimento global de petroleo e os canais diplomaticos entraram em colapso. Varios paises incluindo Egito, Paquistao e Turquia tentam mediacao.">El conflicto actual entre EEUU e Iran representa una de las escaladas militares mas peligrosas desde la Guerra Fria. EEUU ha realizado ataques en 24 provincias iranies, Iran cerro el Estrecho de Ormuz afectando el suministro global de petroleo y los canales diplomaticos se han derrumbado. Varios paises incluyendo Egipto, Pakistan y Turquia intentan mediar.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
-                <div class="faq-q">What happens when the countdown reaches zero?</div>
-                <div class="faq-a">When the countdown reaches Trump's 8PM ET deadline, the US may launch a major military offensive against Iranian infrastructure including bridges and power plants. Trump stated: "The entire country can be finished in one night." Iran has warned of a "much more devastating and broad" response if civilian targets are hit.</div>
+                <div class="faq-q" data-es="Que pasa cuando el countdown llega a cero?" data-en="What happens when the countdown reaches zero?" data-pt="O que acontece quando a contagem regressiva chega a zero?">Que pasa cuando el countdown llega a cero?</div>
+                <div class="faq-a" data-es="Cuando el countdown llegue al deadline de las 8PM ET de Trump, EEUU podria lanzar una ofensiva militar masiva contra la infraestructura irani incluyendo puentes y plantas de energia. Trump declaro: &quot;El pais entero puede acabarse en una noche.&quot; Iran advirtio de una respuesta &quot;mucho mas devastadora y amplia&quot; si se atacan objetivos civiles." data-en="When the countdown reaches Trump's 8PM ET deadline, the US may launch a major military offensive against Iranian infrastructure including bridges and power plants. Trump stated: &quot;The entire country can be finished in one night.&quot; Iran has warned of a &quot;much more devastating and broad&quot; response if civilian targets are hit." data-pt="Quando a contagem regressiva chegar ao prazo das 8PM ET de Trump, os EUA podem lancar uma grande ofensiva militar contra a infraestrutura iraniana, incluindo pontes e usinas de energia. Trump declarou: &quot;O pais inteiro pode acabar em uma noite.&quot; O Ira alertou para uma resposta &quot;muito mais devastadora e ampla&quot; se alvos civis forem atingidos.">Cuando el countdown llegue al deadline de las 8PM ET de Trump, EEUU podria lanzar una ofensiva militar masiva contra la infraestructura irani incluyendo puentes y plantas de energia. Trump declaro: "El pais entero puede acabarse en una noche." Iran advirtio de una respuesta "mucho mas devastadora y amplia" si se atacan objetivos civiles.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
-                <div class="faq-q">Why did the US attack Iran?</div>
-                <div class="faq-a">The conflict escalated after the US accused Iran of attempting to rebuild its nuclear program. Operation Epic Fury launched on February 28, 2026, with strikes across 24 provinces including nuclear facilities. Iran retaliated by closing the Strait of Hormuz, a critical global oil shipping route.</div>
+                <div class="faq-q" data-es="Por que EEUU ataco a Iran?" data-en="Why did the US attack Iran?" data-pt="Por que os EUA atacaram o Ira?">Por que EEUU ataco a Iran?</div>
+                <div class="faq-a" data-es="El conflicto escalo despues de que EEUU acuso a Iran de intentar reconstruir su programa nuclear. La Operacion Epic Fury se lanzo el 28 de febrero de 2026, con ataques en 24 provincias incluyendo instalaciones nucleares. Iran tomo represalias cerrando el Estrecho de Ormuz, una ruta critica global para el envio de petroleo." data-en="The conflict escalated after the US accused Iran of attempting to rebuild its nuclear program. Operation Epic Fury launched on February 28, 2026, with strikes across 24 provinces including nuclear facilities. Iran retaliated by closing the Strait of Hormuz, a critical global oil shipping route." data-pt="O conflito escalou apos os EUA acusarem o Ira de tentar reconstruir seu programa nuclear. A Operacao Epic Fury foi lancada em 28 de fevereiro de 2026, com ataques em 24 provincias incluindo instalacoes nucleares. O Ira retaliou fechando o Estreito de Ormuz, uma rota critica global de transporte de petroleo.">El conflicto escalo despues de que EEUU acuso a Iran de intentar reconstruir su programa nuclear. La Operacion Epic Fury se lanzo el 28 de febrero de 2026, con ataques en 24 provincias incluyendo instalaciones nucleares. Iran tomo represalias cerrando el Estrecho de Ormuz, una ruta critica global para el envio de petroleo.</div>
             </div>
         </div>
 
         <div class="footer">
-            <p data-es="Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026" data-en="Made with &#10084;&#65039; and a lot of fear &mdash; 2026">Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
-            <p style="margin-top:5px" data-es="La humanidad fue bonita mientras duro" data-en="Humanity was beautiful while it lasted">La humanidad fue bonita mientras duro</p>
+            <p data-es="Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026" data-en="Made with &#10084;&#65039; and a lot of fear &mdash; 2026" data-pt="Feito com &#10084;&#65039; e muito medo &mdash; 2026">Hecho con &#10084;&#65039; y mucho miedo &mdash; 2026</p>
+            <p style="margin-top:5px" data-es="La humanidad fue bonita mientras duro" data-en="Humanity was beautiful while it lasted" data-pt="A humanidade foi bonita enquanto durou">La humanidad fue bonita mientras duro</p>
         </div>
     </div>
 
@@ -1526,9 +1526,7 @@
 
         // Share functionality
         var pageUrl = 'https://bomba-nuclear-iran-trump-countdown.vercel.app/';
-        var shareTextEs = 'Cuanto falta para la bomba atomica de Trump? Cuenta regresiva en vivo. Vota: EEUU o Iran?';
-        var shareTextEn = "Trump's Iran nuclear bomb countdown LIVE. How long until the boom? Vote: USA or Iran?";
-        var shareText = currentLang === 'en' ? shareTextEn : shareTextEs;
+        var shareText = shareTexts[currentLang] || shareTexts.es;
 
         document.getElementById('share-x').href =
             'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
@@ -1586,7 +1584,8 @@
                 OneSignalDeferred.push(function(OneSignal) {
                     OneSignal.Slidedown.promptPush();
                 });
-                btn.textContent = currentLang === 'en' ? 'ALERTS ENABLED' : 'ALERTAS ACTIVADAS';
+                var alertsEnabled = { es: 'ALERTAS ACTIVADAS', en: 'ALERTS ENABLED', pt: 'ALERTAS ATIVADAS' };
+                btn.textContent = alertsEnabled[currentLang] || alertsEnabled.es;
                 btn.style.background = '#ff0000';
                 btn.style.color = '#000';
                 btn.disabled = true;
@@ -1594,9 +1593,11 @@
                 var el = document.getElementById('live-count');
                 var current = parseInt(el.textContent.replace(/\./g, '').replace(/,/g, ''));
                 el.textContent = (current + 1).toLocaleString('es');
-                showToast(currentLang === 'en' ? 'Push alerts activated!' : 'Alertas push activadas!');
+                var alertToast = { es: 'Alertas push activadas!', en: 'Push alerts activated!', pt: 'Alertas push ativadas!' };
+                showToast(alertToast[currentLang] || alertToast.es);
             } else {
-                showToast(currentLang === 'en' ? 'Error loading notifications' : 'Error cargando notificaciones');
+                var errorToast = { es: 'Error cargando notificaciones', en: 'Error loading notifications', pt: 'Erro ao carregar notificacoes' };
+                showToast(errorToast[currentLang] || errorToast.es);
             }
         }
 
@@ -1636,7 +1637,7 @@
 
             document.getElementById('usa-percent').textContent = usaPercent + '%';
             document.getElementById('iran-percent').textContent = iranPercent + '%';
-            document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (currentLang === 'en' ? ' votes' : ' votos');
+            document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (translations.votes[currentLang] || translations.votes.es);
 
             // Animate bars
             setTimeout(function() {
@@ -1644,7 +1645,8 @@
                 document.getElementById('iran-bar').style.width = iranPercent + '%';
             }, 100);
 
-            showToast(currentLang === 'en' ? 'Vote registered!' : 'Voto registrado!');
+            var voteToast = { es: 'Voto registrado!', en: 'Vote registered!', pt: 'Voto registrado!' };
+            showToast(voteToast[currentLang] || voteToast.es);
 
             // Keep incrementing votes
             setInterval(function() {
@@ -1656,53 +1658,94 @@
                 document.getElementById('iran-percent').textContent = iranPercent + '%';
                 document.getElementById('usa-bar').style.width = usaPercent + '%';
                 document.getElementById('iran-bar').style.width = iranPercent + '%';
-                document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (currentLang === 'en' ? ' votes' : ' votos');
+                document.getElementById('poll-total').textContent = totalVotes.toLocaleString('es') + (translations.votes[currentLang] || translations.votes.es);
             }, 2000);
         }
 
-        // Language toggle
-        var currentLang = 'es';
+        // Language toggle - detect browser language
+        function detectLang() {
+            var browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+            if (browserLang.startsWith('pt')) return 'pt';
+            if (browserLang.startsWith('en')) return 'en';
+            return 'es';
+        }
+        var currentLang = detectLang();
+        var langCycle = ['es', 'en', 'pt'];
         var translations = {
-            title: { es: 'COUNTDOWN TO KABOOM', en: 'COUNTDOWN TO KABOOM' },
-            subtitle: { es: 'Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026', en: "Trump's Ultimatum: 8:00 PM ET - April 7, 2026" },
-            status: { es: '\u26A0 SISTEMA ARMADO - DETONACION EN PROGRESO \u26A0', en: '\u26A0 SYSTEM ARMED - DETONATION IN PROGRESS \u26A0' },
-            hours: { es: 'Horas', en: 'Hours' },
-            minutes: { es: 'Minutos', en: 'Minutes' },
-            seconds: { es: 'Segundos', en: 'Seconds' },
+            title: { es: 'COUNTDOWN TO KABOOM', en: 'COUNTDOWN TO KABOOM', pt: 'COUNTDOWN TO KABOOM' },
+            subtitle: { es: 'Ultimatum de Trump: 8:00 PM ET - 7 de Abril 2026', en: "Trump's Ultimatum: 8:00 PM ET - April 7, 2026", pt: 'Ultimato de Trump: 8:00 PM ET - 7 de Abril 2026' },
+            status: { es: '\u26A0 SISTEMA ARMADO - DETONACION EN PROGRESO \u26A0', en: '\u26A0 SYSTEM ARMED - DETONATION IN PROGRESS \u26A0', pt: '\u26A0 SISTEMA ARMADO - DETONACAO EM PROGRESSO \u26A0' },
+            hours: { es: 'Horas', en: 'Hours', pt: 'Horas' },
+            minutes: { es: 'Minutos', en: 'Minutes', pt: 'Minutos' },
+            seconds: { es: 'Segundos', en: 'Seconds', pt: 'Segundos' },
             disclaimer: {
                 es: '* Esto es satira. No apoyamos la violencia. Pero si vas a destruir un pais entero, al menos merecemos un countdown decente, no? La realidad supera la ficcion. Todos los dias.',
-                en: "* This is satire. We don't support violence. But if you're going to destroy an entire country, at least we deserve a decent countdown, right? Reality surpasses fiction. Every day."
+                en: "* This is satire. We don't support violence. But if you're going to destroy an entire country, at least we deserve a decent countdown, right? Reality surpasses fiction. Every day.",
+                pt: '* Isto e satira. Nao apoiamos a violencia. Mas se voce vai destruir um pais inteiro, pelo menos merecemos uma contagem regressiva decente, nao? A realidade supera a ficcao. Todos os dias.'
             },
-            tzTitle: { es: '\u{1F310} Hora del impacto segun tu ubicacion', en: '\u{1F310} Impact time based on your location' },
-            tzLocal: { es: '\u{1F4CD} En tu zona: ', en: '\u{1F4CD} Your timezone: ' },
-            pollTitle: { es: 'De que lado estas?', en: 'Whose side are you on?' },
-            shareTitle: { es: '\u{1F4E3} Avisale a tu amigo!', en: '\u{1F4E3} Tell your friend!' },
-            subTitle: { es: '\u{1F514} Aviso del bombazo', en: '\u{1F514} Boom notification' },
-            subText: { es: 'Suscribete y te avisamos cuando todo se vaya al carajo. Servicio premium. Gratis mientras dure el planeta.', en: "Subscribe and we'll notify you when it all goes to hell. Premium service. Free while the planet lasts." },
-            subBtn: { es: 'SUSCRIBIRSE', en: 'SUBSCRIBE' },
-            liveCount: { es: ' personas esperando el bombazo en vivo', en: ' people waiting for the boom live' },
-            splashTitle: { es: 'ALERTA MUNDIAL', en: 'GLOBAL ALERT' },
-            splashSub: { es: 'Ultimatum de Trump a Iran - Countdown en vivo', en: "Trump's Ultimatum to Iran - Live Countdown" },
-            splashBtn: { es: 'ENTRAR SI TE ANIMAS', en: 'ENTER IF YOU DARE' },
-            splashHint: { es: '* Subi el volumen para la experiencia completa \u{1F50A}', en: '* Turn up the volume for the full experience \u{1F50A}' },
-            footer1: { es: 'Hecho con \u2764\uFE0F y mucho miedo \u2014 2026', en: 'Made with \u2764\uFE0F and a lot of fear \u2014 2026' },
-            footer2: { es: 'La humanidad fue bonita mientras duro', en: 'Humanity was beautiful while it lasted' },
-            coffee: { es: '\u2615 Si vamos a morir, merezco un cafecito', en: '\u2615 If these are my last minutes, I deserve a coffee' }
+            tzTitle: { es: '\u{1F310} Hora del impacto segun tu ubicacion', en: '\u{1F310} Impact time based on your location', pt: '\u{1F310} Hora do impacto conforme sua localizacao' },
+            tzLocal: { es: '\u{1F4CD} En tu zona: ', en: '\u{1F4CD} Your timezone: ', pt: '\u{1F4CD} Na sua zona: ' },
+            tzName: { es: 'Tu zona horaria: ', en: 'Your timezone: ', pt: 'Seu fuso horario: ' },
+            pollTitle: { es: 'De que lado estas?', en: 'Whose side are you on?', pt: 'De que lado voce esta?' },
+            shareTitle: { es: '\u{1F4E3} Avisale a tu amigo!', en: '\u{1F4E3} Tell your friend!', pt: '\u{1F4E3} Avise seu amigo!' },
+            subTitle: { es: '\u{1F514} No te pierdas el momento', en: "\u{1F514} Don't miss the moment", pt: '\u{1F514} Nao perca o momento' },
+            subText: { es: 'Elegi como queres enterarte cuando todo explote:', en: "Choose how you want to know when it all blows up:", pt: 'Escolha como quer saber quando tudo explodir:' },
+            subBtn: { es: 'OK', en: 'OK', pt: 'OK' },
+            liveCount: { es: ' personas esperando el bombazo en vivo', en: ' people waiting for the boom live', pt: ' pessoas esperando a explosao ao vivo' },
+            splashTitle: { es: 'ALERTA MUNDIAL', en: 'GLOBAL ALERT', pt: 'ALERTA MUNDIAL' },
+            splashSub: { es: 'Ultimatum de Trump a Iran - Countdown en vivo', en: "Trump's Ultimatum to Iran - Live Countdown", pt: 'Ultimato de Trump ao Ira - Contagem regressiva ao vivo' },
+            splashBtn: { es: 'ENTRAR SI TE ANIMAS', en: 'ENTER IF YOU DARE', pt: 'ENTRAR SE TIVER CORAGEM' },
+            splashHint: { es: '* Subi el volumen para la experiencia completa \u{1F50A}', en: '* Turn up the volume for the full experience \u{1F50A}', pt: '* Aumente o volume para a experiencia completa \u{1F50A}' },
+            footer1: { es: 'Hecho con \u2764\uFE0F y mucho miedo \u2014 2026', en: 'Made with \u2764\uFE0F and a lot of fear \u2014 2026', pt: 'Feito com \u2764\uFE0F e muito medo \u2014 2026' },
+            footer2: { es: 'La humanidad fue bonita mientras duro', en: 'Humanity was beautiful while it lasted', pt: 'A humanidade foi bonita enquanto durou' },
+            coffee: { es: '\u2615 Si vamos a morir, merezco un cafecito', en: '\u2615 If these are my last minutes, I deserve a coffee', pt: '\u2615 Se vamos morrer, mereco um cafezinho' },
+            copyLink: { es: 'Copiar Link', en: 'Copy Link', pt: 'Copiar Link' },
+            votes: { es: ' votos', en: ' votes', pt: ' votos' }
         };
 
-        function toggleLang() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
+        var shareTexts = {
+            es: 'Cuanto falta para la bomba atomica de Trump? Cuenta regresiva en vivo. Vota: EEUU o Iran?',
+            en: "Trump's Iran nuclear bomb countdown LIVE. How long until the boom? Vote: USA or Iran?",
+            pt: 'Quanto falta para a bomba atomica de Trump? Contagem regressiva ao vivo. Vote: EUA ou Ira?'
+        };
+
+        function applyLang() {
             var toggle = document.getElementById('lang-toggle');
 
-            if (currentLang === 'en') {
-                toggle.innerHTML = '&#127466;&#127480;';
-                toggle.title = 'Espanol';
-            } else {
+            // Show flag of NEXT language to switch to
+            if (currentLang === 'es') {
+                // Currently ES, show UK flag (click for EN)
                 toggle.innerHTML = '&#127468;&#127463;';
                 toggle.title = 'English';
+            } else if (currentLang === 'en') {
+                // Currently EN, show Brazil flag (click for PT)
+                toggle.innerHTML = '&#127463;&#127479;';
+                toggle.title = 'Portugues';
+            } else {
+                // Currently PT, show Spain flag (click for ES)
+                toggle.innerHTML = '&#127466;&#127480;';
+                toggle.title = 'Espanol';
             }
 
-            // Update texts
+            // Generic data attribute approach: update ALL elements with data-[currentLang]
+            document.querySelectorAll('[data-' + currentLang + ']').forEach(function(el) {
+                var val = el.getAttribute('data-' + currentLang);
+                // For elements that contain child nodes (like tz-local with a span), use innerHTML check
+                if (el.children.length > 0 && el.classList.contains('tz-local')) {
+                    // Special handling: preserve the child span
+                    var timeSpan = document.getElementById('tz-local-time');
+                    var timeVal = timeSpan ? timeSpan.textContent : '';
+                    el.innerHTML = val + '<span id="tz-local-time">' + timeVal + '</span>';
+                } else if (el.querySelector && el.querySelectorAll('*').length === 0) {
+                    el.textContent = val;
+                } else if (el.children.length === 0) {
+                    el.textContent = val;
+                } else {
+                    el.textContent = val;
+                }
+            });
+
+            // Update texts that use the translations object (no data attributes)
             document.querySelector('.title').textContent = translations.title[currentLang];
             document.querySelector('.subtitle').textContent = translations.subtitle[currentLang];
             document.getElementById('status').textContent = translations.status[currentLang];
@@ -1711,16 +1754,6 @@
             labels[0].textContent = translations.hours[currentLang];
             labels[1].textContent = translations.minutes[currentLang];
             labels[2].textContent = translations.seconds[currentLang];
-
-            document.querySelector('.disclaimer').textContent = translations.disclaimer[currentLang];
-            document.querySelector('.tz-title').textContent = translations.tzTitle[currentLang];
-            document.querySelector('.poll-title').textContent = translations.pollTitle[currentLang];
-
-            document.querySelectorAll('.section-title')[1].textContent = translations.shareTitle[currentLang];
-
-            document.querySelector('.subscribe-section .section-title').textContent = translations.subTitle[currentLang];
-            document.querySelector('.subscribe-section p:not(.section-title):not(.counter-live)').textContent = translations.subText[currentLang];
-            document.getElementById('subscribe-btn').textContent = translations.subBtn[currentLang];
 
             document.querySelector('.splash-title').textContent = translations.splashTitle[currentLang];
             document.querySelector('.splash-sub').textContent = translations.splashSub[currentLang];
@@ -1731,11 +1764,26 @@
             footerPs[0].innerHTML = translations.footer1[currentLang];
             footerPs[1].textContent = translations.footer2[currentLang];
 
+            // Update timezone name label
+            var tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.getElementById('tz-local-name').textContent = translations.tzName[currentLang] + tzName;
+
             // Update share links with current language
-            shareText = currentLang === 'en' ? shareTextEn : shareTextEs;
+            shareText = shareTexts[currentLang] || shareTexts.es;
             document.getElementById('share-x').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
             document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
             document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(shareText);
+        }
+
+        function toggleLang() {
+            var idx = langCycle.indexOf(currentLang);
+            currentLang = langCycle[(idx + 1) % langCycle.length];
+            applyLang();
+        }
+
+        // Apply detected language on load
+        if (currentLang !== 'es') {
+            applyLang();
         }
     </script>
 </body>
