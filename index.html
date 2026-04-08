@@ -1716,6 +1716,7 @@
             title: { es: 'ALTO EL FUEGO', en: 'CEASEFIRE', pt: 'CESSAR-FOGO' },
             subtitle: { es: 'Cuanto dura la paz? Countdown de las 2 semanas', en: 'How long will peace last? 2-week countdown', pt: 'Quanto tempo dura a paz? Contagem de 2 semanas' },
             status: { es: '\u26A0 ALTO EL FUEGO FRAGIL - ORMUZ CERRADO OTRA VEZ \u26A0', en: '\u26A0 FRAGILE CEASEFIRE - HORMUZ CLOSED AGAIN \u26A0', pt: '\u26A0 CESSAR-FOGO FRAGIL - ORMUZ FECHADO DE NOVO \u26A0' },
+            days: { es: 'Dias', en: 'Days', pt: 'Dias' },
             hours: { es: 'Horas', en: 'Hours', pt: 'Horas' },
             minutes: { es: 'Minutos', en: 'Minutes', pt: 'Minutos' },
             seconds: { es: 'Segundos', en: 'Seconds', pt: 'Segundos' },
@@ -1790,9 +1791,10 @@
             document.getElementById('status').textContent = translations.status[currentLang];
 
             var labels = document.querySelectorAll('.time-label');
-            labels[0].textContent = translations.hours[currentLang];
-            labels[1].textContent = translations.minutes[currentLang];
-            labels[2].textContent = translations.seconds[currentLang];
+            labels[0].textContent = translations.days[currentLang];
+            labels[1].textContent = translations.hours[currentLang];
+            labels[2].textContent = translations.minutes[currentLang];
+            labels[3].textContent = translations.seconds[currentLang];
 
 
             var footerPs = document.querySelectorAll('.footer p');
